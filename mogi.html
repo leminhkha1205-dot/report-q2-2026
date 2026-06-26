@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Report traffic bất động sản Mogi.vn</title>
+<style>
+:root{--ink:#172033;--muted:#667085;--line:#e4e9f2;--blue:#2563eb;--green:#12b981;--red:#ef476f;--amber:#f59e0b;--card:#fff;--shadow:0 18px 45px rgba(20,31,56,.08)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,#eef4ff 0%,#f7f9fc 30%,#f6f8fc 100%);color:var(--ink);line-height:1.55}
+.wrap{width:min(1260px,calc(100% - 36px));margin:0 auto;padding:32px 0 56px}
+.hero{padding:34px;border-radius:28px;color:#fff;background:radial-gradient(circle at 82% 18%,rgba(56,189,248,.22),transparent 30%),linear-gradient(135deg,#102045 0%,#1d4ed8 54%,#0f766e 100%);box-shadow:var(--shadow)}
+.eyebrow{display:inline-flex;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:850}
+h1{max-width:1080px;margin:18px 0 12px;font-size:clamp(32px,4vw,56px);line-height:1.04;letter-spacing:-.045em}
+.hero p{max-width:1000px;margin:0;color:rgba(255,255,255,.84);font-size:17px}
+.periods{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.pill{padding:10px 13px;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:760}
+.warning,.context-note{margin-top:16px;padding:18px 20px;border-radius:20px;box-shadow:var(--shadow);font-size:14px}
+.warning{border:1px solid #fde68a;background:#fffbeb;color:#6b4e16}
+.context-note{border:1px solid #bfdbfe;background:#eff6ff;color:#24436e}
+.section-title{margin:30px 0 12px;padding:20px 24px;border-radius:24px;background:#172033;color:#fff;box-shadow:var(--shadow)}
+.section-title h2{margin:0;font-size:30px;letter-spacing:-.03em}
+.section-title p{margin:8px 0 0;color:rgba(255,255,255,.78);font-size:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:24px;margin-top:16px;overflow:visible}
+.card h3{margin:0;font-size:23px;letter-spacing:-.02em}
+.card p{margin:7px 0 0;color:var(--muted);font-size:15px}
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.insight-box{border:1px solid var(--line);border-radius:18px;background:#fbfcff;padding:18px}
+.insight-box h4{margin:0 0 8px;font-size:17px} .insight-box p{margin:0;color:var(--muted);font-size:14px} .insight-box b{color:#172033}
+.table-wrap{width:100%;overflow-x:auto;margin-top:18px;border:1px solid var(--line);border-radius:18px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:980px}
+th{background:#eef4ff;color:#33507e;text-align:center;font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding:12px 14px;white-space:nowrap;vertical-align:middle}
+td{padding:14px;border-top:1px solid var(--line);vertical-align:middle;text-align:center}
+th:first-child,td:first-child{text-align:left}
+.name-cell b,.url-cell b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#1d2939;font-size:15px;text-align:left}
+.name-cell span{display:block;color:var(--muted);font-size:12px;margin-top:3px;text-align:left}
+.num{text-align:center;white-space:nowrap;font-weight:900} .note-cell{color:#344054;font-size:14px;text-align:left}
+.idx{width:30px;height:30px;display:grid;place-items:center;border-radius:10px;background:#eef4ff;color:#24436e;font-weight:900;font-size:13px;margin:auto}
+.bar{height:18px;background:#e7edf7;border:1px solid var(--line);border-radius:999px;overflow:hidden;min-width:180px}
+.bar i{display:block;height:100%;border-radius:999px;min-width:4px} .bar .pos{background:var(--green)}.bar .neg{background:var(--red)}
+.pos{color:var(--green)}.neg{color:var(--red)}.neutral{color:var(--blue)}
+.table-insight{margin-top:14px;padding:15px 16px;border-radius:16px;background:#eff6ff;border:1px solid #bfdbfe;color:#24436e}
+.table-insight p{margin:0;color:#24436e;font-size:14px} .table-insight p + p{margin-top:6px}
+.action-card{border-color:#bfdbfe;background:#f8fbff} .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.plan-card{border:1px solid var(--line);border-radius:18px;background:#fff;padding:18px} .priority{display:inline-grid;place-items:center;width:42px;height:32px;border-radius:10px;background:#1d4ed8;color:#fff;font-weight:900;margin-bottom:12px}
+.plan-card h4{margin:0 0 8px;font-size:17px} .plan-card p{font-size:14px;margin:8px 0 0;color:var(--muted)}
+.detail-list{margin-top:12px;border:1px dashed #bfd3f6;border-radius:14px;padding:12px;background:#f8fbff} .detail-list b{display:block;margin-bottom:8px;color:#172033;font-size:13px} .detail-list ul{margin:0;padding-left:18px;color:#344054;font-size:13px} .detail-list li{margin:5px 0}
+.q3-plan-card td{text-align:left!important} .q3-plan-card th{text-align:center!important}
+.footer{margin-top:22px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:1280px){.insight-grid,.plan-grid{grid-template-columns:1fr}}
+@media(max-width:720px){.wrap{width:min(100% - 20px,1260px);padding-top:16px}.hero,.card{padding:20px;border-radius:22px}h1{font-size:30px}.section-title h2{font-size:24px}table{min-width:920px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="hero">
+<span class="eyebrow">Report traffic · Bất động sản Mogi.vn</span>
+<h1>Report traffic bất động sản Mogi.vn</h1>
+<p>Báo cáo phân tích biến động sessions theo channel trong kỳ 27/03/2026 – 24/06/2026 so với kỳ 26/12/2025 – 25/03/2026. Trọng tâm gồm SEO, Ads/Cross-network và nhóm Referral/Unassigned.</p>
+<div class="periods">
+<span class="pill">Kỳ phân tích: 27/03/2026 – 24/06/2026</span>
+<span class="pill">Kỳ so sánh: 26/12/2025 – 25/03/2026</span>
+<span class="pill">Nguồn: GA4 Export</span>
+</div>
+</section>
+<section class="warning"><b>Ghi chú dữ liệu:</b> Data Mogi.vn hiện có channel Direct, Organic Search, Cross-network, Referral và Unassigned. Không thấy cột Organic Social trong file, nên báo cáo không suy diễn Social; phần cuối thay bằng Referral &amp; Unassigned / tracking gap.</section>
+<section class="section-title"><h2>1. Tổng quan Sessions theo channel</h2><p>Sessions từng kênh và % tăng/giảm so với quý trước.</p></section>
+<section class="card">
+<h3>Sessions by channel</h3>
+<p>Tổng quan từng channel trong data Mogi.vn.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Channel</th><th>Mức tăng/giảm</th><th>Quý trước</th><th>Quý này</th><th>Δ sessions</th><th>%Δ</th><th>Ghi chú</th></tr></thead>
+<tbody>
+<tr>
+<td class="name-cell"><b>Direct</b></td>
+<td><div class="bar"><i class="pos" style="width:100.00%"></i></div></td>
+<td class="num">1,105,143</td>
+<td class="num">1,366,164</td>
+<td class="num pos">261.0K</td>
+<td class="num pos">+23.6%</td>
+<td class="note-cell">Kênh lớn nhất, cần tách UTM/brand/CRM nếu muốn action.</td>
+</tr>
+<tr>
+<td class="name-cell"><b>SEO / Organic Search</b></td>
+<td><div class="bar"><i class="pos" style="width:6.58%"></i></div></td>
+<td class="num">96,278</td>
+<td class="num">113,447</td>
+<td class="num pos">17.2K</td>
+<td class="num pos">+17.8%</td>
+<td class="note-cell">Kênh tăng trưởng tự nhiên, có thể scale bằng SEO.</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Ads / Cross-network</b></td>
+<td><div class="bar"><i class="pos" style="width:28.78%"></i></div></td>
+<td class="num">7,430</td>
+<td class="num">82,552</td>
+<td class="num pos">75.1K</td>
+<td class="num pos">+1011.1%</td>
+<td class="note-cell">Tăng mạnh, có thể dùng để hỗ trợ SEO và test intent/category.</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Referral</b></td>
+<td><div class="bar"><i class="pos" style="width:0.53%"></i></div></td>
+<td class="num">7,817</td>
+<td class="num">9,193</td>
+<td class="num pos">1.4K</td>
+<td class="num pos">+17.6%</td>
+<td class="note-cell">Tăng nhẹ, kênh hỗ trợ.</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Unassigned</b></td>
+<td><div class="bar"><i class="pos" style="width:0.61%"></i></div></td>
+<td class="num">7,522</td>
+<td class="num">9,102</td>
+<td class="num pos">1.6K</td>
+<td class="num pos">+21.0%</td>
+<td class="note-cell">Tracking gap/misc; không xem là Social.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Total sessions tăng 357.6K (+29.0%). Direct tăng 261.0K, Ads/Cross-network tăng 75.1K và SEO tăng 17.2K. Do Direct chiếm tỷ trọng lớn, phần action nên tách riêng SEO và Ads thay vì chỉ nhìn tổng sessions.</p><p><b>Action:</b> Ưu tiên phân tích SEO để scale Organic; dùng Ads/Cross-network để hỗ trợ SEO và kiểm chứng intent/category; xử lý Unassigned như tracking gap.</p></div>
+</section>
+<section class="card">
+<h3>Insight tổng quan</h3>
+<div class="insight-grid">
+<div class="insight-box"><h4>Tổng sessions tăng</h4><p>Tổng sessions tăng <b>357.6K</b> (+29.0%). Đây là tín hiệu tăng trưởng tổng thể, nhưng cần phân rã theo channel để đưa ra action.</p></div>
+<div class="insight-box"><h4>Ads tăng mạnh</h4><p>Cross-network tăng <b>75.1K</b> (+1011.1%), là channel có biến động tăng lớn nhất về tỷ lệ.</p></div>
+<div class="insight-box"><h4>SEO tăng ổn định</h4><p>Organic Search tăng <b>17.2K</b> (+17.8%). Đây là nhóm nên tiếp tục scale bằng content, internal link và landing page địa phương/category.</p></div>
+</div>
+</section>
+<section class="section-title"><h2>2. Phân tích từng kênh và insight</h2><p>Phân tích SEO, Ads/Cross-network và Referral/Unassigned theo nhóm nhu cầu, khu vực, quận/huyện, loại hình và URL.</p></section>
+<section class="card">
+<h3>2.1. SEO / Organic Search</h3>
+<p>Organic Search tăng 17.2K (+17.8%). Phần này xác định nhóm đang tăng để scale và nhóm giảm để phục hồi.</p>
+<div class="insight-grid">
+<div class="insight-box"><h4>Nhóm nhu cầu SEO</h4><p>Nhóm tăng SEO nổi bật là <b>Cho thuê</b> (10.9K).</p></div>
+<div class="insight-box"><h4>Quận/huyện SEO</h4><p>Quận/huyện tăng SEO tốt nhất là <b>Quận 1, TP.HCM</b> (1.5K).</p></div>
+<div class="insight-box"><h4>Loại hình SEO</h4><p>Loại hình tăng SEO tốt nhất là <b>Phòng trọ / Nhà trọ</b> (3.3K); nhóm giảm đáng chú ý là <b>Đất</b> (-267).</p></div>
+</div>
+</section>
+<section class="card">
+<h3>SEO change theo nhóm nhu cầu</h3>
+<p>Nhóm nhu cầu nào đang tăng/giảm Organic Search.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Nhóm nhu cầu</th><th>Mức tăng/giảm</th><th>Quý trước</th><th>Quý này</th><th>Δ sessions</th><th>%Δ</th></tr></thead>
+<tbody>
+<tr>
+<td class="name-cell"><b>Cho thuê</b><span>40527 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:100.00%"></i></div></td>
+<td class="num">43,501</td>
+<td class="num">54,424</td>
+<td class="num pos">10.9K</td>
+<td class="num pos">+25.1%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Mua bán</b><span>55044 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:22.80%"></i></div></td>
+<td class="num">23,007</td>
+<td class="num">25,497</td>
+<td class="num pos">2.5K</td>
+<td class="num pos">+10.8%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Tổng hợp / Khác</b><span>3329 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:17.67%"></i></div></td>
+<td class="num">4,564</td>
+<td class="num">6,494</td>
+<td class="num pos">1.9K</td>
+<td class="num pos">+42.3%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Giá nhà đất</b><span>759 pages</span></td>
+<td><div class="bar"><i class="neg" style="width:6.12%"></i></div></td>
+<td class="num">4,753</td>
+<td class="num">4,084</td>
+<td class="num neg">-669</td>
+<td class="num neg">-14.1%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Dự án</b><span>334 pages</span></td>
+<td><div class="bar"><i class="neg" style="width:0.03%"></i></div></td>
+<td class="num">121</td>
+<td class="num">118</td>
+<td class="num neg">-3</td>
+<td class="num neg">-2.5%</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Nhóm nhu cầu tăng tốt nhất là Cho thuê (10.9K, +25.1%); nhóm giảm mạnh nhất là Giá nhà đất (-669, -14.1%).</p><p><b>Action:</b> Scale nhóm tăng bằng content/internal link; nhóm giảm cần kiểm tra ranking, intent, index và template.</p></div>
+</section>
+<section class="card">
+<h3>SEO change theo khu vực</h3>
+<p>Khu vực nào đang tăng/giảm Organic Search.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Khu vực</th><th>Mức tăng/giảm</th><th>Quý trước</th><th>Quý này</th><th>Δ sessions</th><th>%Δ</th></tr></thead>
+<tbody>
+<tr>
+<td class="name-cell"><b>TP.HCM</b><span>20874 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:100.00%"></i></div></td>
+<td class="num">50,009</td>
+<td class="num">56,560</td>
+<td class="num pos">6.6K</td>
+<td class="num pos">+13.1%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Khác / Toàn quốc</b><span>63568 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:91.19%"></i></div></td>
+<td class="num">16,058</td>
+<td class="num">22,032</td>
+<td class="num pos">6.0K</td>
+<td class="num pos">+37.2%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Hà Nội</b><span>8532 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:20.42%"></i></div></td>
+<td class="num">6,507</td>
+<td class="num">7,845</td>
+<td class="num pos">1.3K</td>
+<td class="num pos">+20.6%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Đà Nẵng</b><span>1870 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:4.08%"></i></div></td>
+<td class="num">1,104</td>
+<td class="num">1,371</td>
+<td class="num pos">267</td>
+<td class="num pos">+24.2%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Cần Thơ</b><span>513 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:3.31%"></i></div></td>
+<td class="num">355</td>
+<td class="num">572</td>
+<td class="num pos">217</td>
+<td class="num pos">+61.1%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Đồng Nai</b><span>1546 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:2.08%"></i></div></td>
+<td class="num">872</td>
+<td class="num">1,008</td>
+<td class="num pos">136</td>
+<td class="num pos">+15.6%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Bình Dương</b><span>1517 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:1.40%"></i></div></td>
+<td class="num">561</td>
+<td class="num">653</td>
+<td class="num pos">92</td>
+<td class="num pos">+16.4%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Bà Rịa - Vũng Tàu</b><span>641 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:1.14%"></i></div></td>
+<td class="num">188</td>
+<td class="num">263</td>
+<td class="num pos">75</td>
+<td class="num pos">+39.9%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Long An</b><span>412 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:0.35%"></i></div></td>
+<td class="num">147</td>
+<td class="num">170</td>
+<td class="num pos">23</td>
+<td class="num pos">+15.6%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Hải Phòng</b><span>520 pages</span></td>
+<td><div class="bar"><i class="neg" style="width:0.03%"></i></div></td>
+<td class="num">145</td>
+<td class="num">143</td>
+<td class="num neg">-2</td>
+<td class="num neg">-1.4%</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Khu vực tăng tốt nhất là TP.HCM (6.6K, +13.1%); nhóm giảm mạnh nhất là Hải Phòng (-2, -1.4%).</p><p><b>Action:</b> Dùng bảng khu vực để chọn cụm địa phương cần scale SEO hoặc phục hồi.</p></div>
+</section>
+<section class="card">
+<h3>SEO change theo quận/huyện</h3>
+<p>Quận/huyện nào đang tăng/giảm Organic Search.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Quận/Huyện</th><th>Mức tăng/giảm</th><th>Quý trước</th><th>Quý này</th><th>Δ sessions</th><th>%Δ</th></tr></thead>
+<tbody>
+<tr>
+<td class="name-cell"><b>Quận 1, TP.HCM</b><span>11200 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:100.00%"></i></div></td>
+<td class="num">9,144</td>
+<td class="num">10,666</td>
+<td class="num pos">1.5K</td>
+<td class="num pos">+16.6%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Quận 7, TP.HCM</b><span>6888 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:55.72%"></i></div></td>
+<td class="num">4,979</td>
+<td class="num">5,827</td>
+<td class="num pos">848</td>
+<td class="num pos">+17.0%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Bình Thạnh, TP.HCM</b><span>4752 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:54.14%"></i></div></td>
+<td class="num">5,081</td>
+<td class="num">5,905</td>
+<td class="num pos">824</td>
+<td class="num pos">+16.2%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Quận 9, TP.HCM</b><span>3187 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:53.35%"></i></div></td>
+<td class="num">4,000</td>
+<td class="num">4,812</td>
+<td class="num pos">812</td>
+<td class="num pos">+20.3%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Tân Bình, TP.HCM</b><span>5013 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:46.58%"></i></div></td>
+<td class="num">3,183</td>
+<td class="num">3,892</td>
+<td class="num pos">709</td>
+<td class="num pos">+22.3%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Quận 3, TP.HCM</b><span>3082 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:44.22%"></i></div></td>
+<td class="num">2,007</td>
+<td class="num">2,680</td>
+<td class="num pos">673</td>
+<td class="num pos">+33.5%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Gò Vấp, TP.HCM</b><span>3757 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:36.07%"></i></div></td>
+<td class="num">2,926</td>
+<td class="num">3,475</td>
+<td class="num pos">549</td>
+<td class="num pos">+18.8%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Phú Nhuận, TP.HCM</b><span>3300 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:35.61%"></i></div></td>
+<td class="num">1,970</td>
+<td class="num">2,512</td>
+<td class="num pos">542</td>
+<td class="num pos">+27.5%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Tân Phú, TP.HCM</b><span>4022 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:34.56%"></i></div></td>
+<td class="num">3,393</td>
+<td class="num">3,919</td>
+<td class="num pos">526</td>
+<td class="num pos">+15.5%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Quận 5, TP.HCM</b><span>1372 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:32.46%"></i></div></td>
+<td class="num">1,167</td>
+<td class="num">1,661</td>
+<td class="num pos">494</td>
+<td class="num pos">+42.3%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Bình Tân, TP.HCM</b><span>2816 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:30.09%"></i></div></td>
+<td class="num">2,688</td>
+<td class="num">3,146</td>
+<td class="num pos">458</td>
+<td class="num pos">+17.0%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Thủ Đức, TP.HCM</b><span>2206 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:29.83%"></i></div></td>
+<td class="num">2,562</td>
+<td class="num">3,016</td>
+<td class="num pos">454</td>
+<td class="num pos">+17.7%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Quận 8, TP.HCM</b><span>1655 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:26.61%"></i></div></td>
+<td class="num">1,777</td>
+<td class="num">2,182</td>
+<td class="num pos">405</td>
+<td class="num pos">+22.8%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Quận 2, TP.HCM</b><span>5044 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:26.08%"></i></div></td>
+<td class="num">5,460</td>
+<td class="num">5,857</td>
+<td class="num pos">397</td>
+<td class="num pos">+7.3%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Hai Bà Trưng, Hà Nội</b><span>1519 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:17.08%"></i></div></td>
+<td class="num">355</td>
+<td class="num">615</td>
+<td class="num pos">260</td>
+<td class="num pos">+73.2%</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Quận/huyện tăng tốt nhất là Quận 1, TP.HCM (1.5K, +16.6%); nhóm giảm mạnh nhất là Hà Đông, Hà Nội (-182, -30.7%).</p><p><b>Action:</b> Ưu tiên quận/huyện có SEO tăng tốt cho internal link và mở rộng landing page cùng intent.</p></div>
+</section>
+<section class="card">
+<h3>SEO change theo loại hình BĐS</h3>
+<p>Loại hình nào đang tăng/giảm Organic Search.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Loại hình BĐS</th><th>Mức tăng/giảm</th><th>Quý trước</th><th>Quý này</th><th>Δ sessions</th><th>%Δ</th></tr></thead>
+<tbody>
+<tr>
+<td class="name-cell"><b>Phòng trọ / Nhà trọ</b><span>6350 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:100.00%"></i></div></td>
+<td class="num">11,518</td>
+<td class="num">14,820</td>
+<td class="num pos">3.3K</td>
+<td class="num pos">+28.7%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Căn hộ / Chung cư</b><span>27233 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:84.28%"></i></div></td>
+<td class="num">18,654</td>
+<td class="num">21,437</td>
+<td class="num pos">2.8K</td>
+<td class="num pos">+14.9%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Khác / Tổng hợp</b><span>5154 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:65.99%"></i></div></td>
+<td class="num">5,225</td>
+<td class="num">7,404</td>
+<td class="num pos">2.2K</td>
+<td class="num pos">+41.7%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Mặt bằng kinh doanh</b><span>6150 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:50.76%"></i></div></td>
+<td class="num">6,709</td>
+<td class="num">8,385</td>
+<td class="num pos">1.7K</td>
+<td class="num pos">+25.0%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Nhà cho thuê</b><span>3869 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:44.70%"></i></div></td>
+<td class="num">8,429</td>
+<td class="num">9,905</td>
+<td class="num pos">1.5K</td>
+<td class="num pos">+17.5%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Nhà bán</b><span>7692 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:29.80%"></i></div></td>
+<td class="num">9,492</td>
+<td class="num">10,476</td>
+<td class="num pos">984</td>
+<td class="num pos">+10.4%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Biệt thự / Liền kề</b><span>6145 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:28.07%"></i></div></td>
+<td class="num">1,261</td>
+<td class="num">2,188</td>
+<td class="num pos">927</td>
+<td class="num pos">+73.5%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Nhà mặt tiền</b><span>12890 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:23.65%"></i></div></td>
+<td class="num">2,690</td>
+<td class="num">3,471</td>
+<td class="num pos">781</td>
+<td class="num pos">+29.0%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Nhà hẻm / Nhà ngõ</b><span>11111 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:8.69%"></i></div></td>
+<td class="num">1,047</td>
+<td class="num">1,334</td>
+<td class="num pos">287</td>
+<td class="num pos">+27.4%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Đất</b><span>4656 pages</span></td>
+<td><div class="bar"><i class="neg" style="width:8.09%"></i></div></td>
+<td class="num">8,996</td>
+<td class="num">8,729</td>
+<td class="num neg">-267</td>
+<td class="num neg">-3.0%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Nhà xưởng / Kho bãi</b><span>1124 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:7.87%"></i></div></td>
+<td class="num">762</td>
+<td class="num">1,022</td>
+<td class="num pos">260</td>
+<td class="num pos">+34.1%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Văn phòng</b><span>1701 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:5.39%"></i></div></td>
+<td class="num">338</td>
+<td class="num">516</td>
+<td class="num pos">178</td>
+<td class="num pos">+52.7%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Đất thổ cư</b><span>4519 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:2.09%"></i></div></td>
+<td class="num">519</td>
+<td class="num">588</td>
+<td class="num pos">69</td>
+<td class="num pos">+13.3%</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Đất nền / Đất dự án</b><span>1065 pages</span></td>
+<td><div class="bar"><i class="pos" style="width:1.33%"></i></div></td>
+<td class="num">188</td>
+<td class="num">232</td>
+<td class="num pos">44</td>
+<td class="num pos">+23.4%</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Loại hình bđs tăng tốt nhất là Phòng trọ / Nhà trọ (3.3K, +28.7%); nhóm giảm mạnh nhất là Đất (-267, -3.0%).</p><p><b>Action:</b> Loại hình tăng là nhóm có thể nhân rộng keyword/category; loại hình giảm cần audit content và SERP.</p></div>
+</section>
+<section class="card">
+<h3>SEO winners</h3>
+<p>Landing page tăng Organic Search mạnh nhất.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>Landing page</th><th>Mức tăng/giảm</th><th>Quý trước</th><th>Quý này</th><th>Δ sessions</th><th>%Δ</th></tr></thead>
+<tbody>
+<tr>
+<td class="idx">1</td>
+<td class="url-cell" title="/thue-phong-tro-nha-tro"><b>/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:100.00%"></i></div></td>
+<td class="num">168</td>
+<td class="num">355</td>
+<td class="num pos">187</td>
+<td class="num pos">+111.3%</td>
+</tr>
+<tr>
+<td class="idx">2</td>
+<td class="url-cell" title="/tag/cho-thue-nha-quan-6-gia-3-trieu-den-5-trieu"><b>/tag/cho-thue-nha-quan-6-gia-3-trieu-den-5-trieu</b></td>
+<td><div class="bar"><i class="pos" style="width:83.42%"></i></div></td>
+<td class="num">57</td>
+<td class="num">213</td>
+<td class="num pos">156</td>
+<td class="num pos">+273.7%</td>
+</tr>
+<tr>
+<td class="idx">3</td>
+<td class="url-cell" title="/tag/cho-thue-nha-quan-8-gia-3-trieu-den-5-trieu"><b>/tag/cho-thue-nha-quan-8-gia-3-trieu-den-5-trieu</b></td>
+<td><div class="bar"><i class="pos" style="width:83.42%"></i></div></td>
+<td class="num">39</td>
+<td class="num">195</td>
+<td class="num pos">156</td>
+<td class="num pos">+400.0%</td>
+</tr>
+<tr>
+<td class="idx">4</td>
+<td class="url-cell" title="/ho-chi-minh/quan-1/thue-phong-tro-nha-tro/truong-cao-dang-ky-thuat-cao-thang-pid1262"><b>/ho-chi-minh/quan-1/thue-phong-tro-nha-tro/truong-cao-dang-ky-thuat-cao-thang-pid1262</b></td>
+<td><div class="bar"><i class="pos" style="width:75.94%"></i></div></td>
+<td class="num">18</td>
+<td class="num">160</td>
+<td class="num pos">142</td>
+<td class="num pos">+788.9%</td>
+</tr>
+<tr>
+<td class="idx">5</td>
+<td class="url-cell" title="/tim-moi-gioi"><b>/tim-moi-gioi</b></td>
+<td><div class="bar"><i class="pos" style="width:75.40%"></i></div></td>
+<td class="num">188</td>
+<td class="num">329</td>
+<td class="num pos">141</td>
+<td class="num pos">+75.0%</td>
+</tr>
+<tr>
+<td class="idx">6</td>
+<td class="url-cell" title="/tra-cuu-sau-sap-nhap"><b>/tra-cuu-sau-sap-nhap</b></td>
+<td><div class="bar"><i class="pos" style="width:70.59%"></i></div></td>
+<td class="num">124</td>
+<td class="num">256</td>
+<td class="num pos">132</td>
+<td class="num pos">+106.5%</td>
+</tr>
+<tr>
+<td class="idx">7</td>
+<td class="url-cell" title="/ha-noi/quan-hoan-kiem/thue-mat-bang-cua-hang-shop"><b>/ha-noi/quan-hoan-kiem/thue-mat-bang-cua-hang-shop</b></td>
+<td><div class="bar"><i class="pos" style="width:62.57%"></i></div></td>
+<td class="num">136</td>
+<td class="num">253</td>
+<td class="num pos">117</td>
+<td class="num pos">+86.0%</td>
+</tr>
+<tr>
+<td class="idx">8</td>
+<td class="url-cell" title="/tag/thue-phong-tro-quan-binh-tan-gia-1tr5"><b>/tag/thue-phong-tro-quan-binh-tan-gia-1tr5</b></td>
+<td><div class="bar"><i class="pos" style="width:61.50%"></i></div></td>
+<td class="num">35</td>
+<td class="num">150</td>
+<td class="num pos">115</td>
+<td class="num pos">+328.6%</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Page tăng mạnh nhất là /thue-phong-tro-nha-tro với 187 sessions (+111.3%).</p><p><b>Action:</b> Lấy các page tăng mạnh làm mẫu để nhân rộng cấu trúc title, nội dung, internal link.</p></div>
+</section>
+<section class="card">
+<h3>SEO recovery list</h3>
+<p>Landing page giảm Organic Search mạnh nhất.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>Landing page</th><th>Mức tăng/giảm</th><th>Quý trước</th><th>Quý này</th><th>Δ sessions</th><th>%Δ</th></tr></thead>
+<tbody>
+<tr>
+<td class="idx">1</td>
+<td class="url-cell" title="/ha-noi/quan-ha-dong/mua-nha/phuong-yen-nghia-ha-dong-wid4371"><b>/ha-noi/quan-ha-dong/mua-nha/phuong-yen-nghia-ha-dong-wid4371</b></td>
+<td><div class="bar"><i class="neg" style="width:100.00%"></i></div></td>
+<td class="num">267</td>
+<td class="num">50</td>
+<td class="num neg">-217</td>
+<td class="num neg">-81.3%</td>
+</tr>
+<tr>
+<td class="idx">2</td>
+<td class="url-cell" title="/gia-nha-dat-quan-binh-tan-qd375"><b>/gia-nha-dat-quan-binh-tan-qd375</b></td>
+<td><div class="bar"><i class="neg" style="width:55.30%"></i></div></td>
+<td class="num">232</td>
+<td class="num">112</td>
+<td class="num neg">-120</td>
+<td class="num neg">-51.7%</td>
+</tr>
+<tr>
+<td class="idx">3</td>
+<td class="url-cell" title="/gia-nha-dat"><b>/gia-nha-dat</b></td>
+<td><div class="bar"><i class="neg" style="width:46.54%"></i></div></td>
+<td class="num">1,134</td>
+<td class="num">1,033</td>
+<td class="num neg">-101</td>
+<td class="num neg">-8.9%</td>
+</tr>
+<tr>
+<td class="idx">4</td>
+<td class="url-cell" title="/mua-nha-dat"><b>/mua-nha-dat</b></td>
+<td><div class="bar"><i class="neg" style="width:42.86%"></i></div></td>
+<td class="num">208</td>
+<td class="num">115</td>
+<td class="num neg">-93</td>
+<td class="num neg">-44.7%</td>
+</tr>
+<tr>
+<td class="idx">5</td>
+<td class="url-cell" title="/ho-chi-minh/quan-2/thue-dat-trong"><b>/ho-chi-minh/quan-2/thue-dat-trong</b></td>
+<td><div class="bar"><i class="neg" style="width:37.79%"></i></div></td>
+<td class="num">153</td>
+<td class="num">71</td>
+<td class="num neg">-82</td>
+<td class="num neg">-53.6%</td>
+</tr>
+<tr>
+<td class="idx">6</td>
+<td class="url-cell" title="/gia-nha-dat-quan-go-vap-qd377"><b>/gia-nha-dat-quan-go-vap-qd377</b></td>
+<td><div class="bar"><i class="neg" style="width:35.48%"></i></div></td>
+<td class="num">444</td>
+<td class="num">367</td>
+<td class="num neg">-77</td>
+<td class="num neg">-17.3%</td>
+</tr>
+<tr>
+<td class="idx">7</td>
+<td class="url-cell" title="/gia-nha-dat-thanh-pho-di-an-qd138"><b>/gia-nha-dat-thanh-pho-di-an-qd138</b></td>
+<td><div class="bar"><i class="neg" style="width:33.64%"></i></div></td>
+<td class="num">171</td>
+<td class="num">98</td>
+<td class="num neg">-73</td>
+<td class="num neg">-42.7%</td>
+</tr>
+<tr>
+<td class="idx">8</td>
+<td class="url-cell" title="/ha-noi/thue-mat-bang-cua-hang-shop-cafe-do-uong"><b>/ha-noi/thue-mat-bang-cua-hang-shop-cafe-do-uong</b></td>
+<td><div class="bar"><i class="neg" style="width:33.18%"></i></div></td>
+<td class="num">172</td>
+<td class="num">100</td>
+<td class="num neg">-72</td>
+<td class="num neg">-41.9%</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Page giảm mạnh nhất là /ha-noi/quan-ha-dong/mua-nha/phuong-yen-nghia-ha-dong-wid4371 với -217 sessions (-81.3%).</p><p><b>Action:</b> Audit ranking, index, nội dung, internal link và cannibalization cho nhóm URL này.</p></div>
+</section>
+<section class="card action-card">
+<h3>Action plan cho SEO / Organic Search</h3>
+<p>Kế hoạch triển khai ngay sau phần phân tích kênh.</p>
+<div class="plan-grid">
+<div class="plan-card">
+<div class="priority">P1</div>
+<h4>Scale nhóm SEO đang tăng</h4>
+<p><b>Lý do:</b> SEO tăng 17.2K (+17.8%), nhóm tăng nổi bật là Cho thuê.</p>
+<div class="detail-list"><b>Nhóm/URL cần xử lý</b><ul><li>Nhóm nhu cầu: Cho thuê (10.9K), Mua bán (2.5K), Tổng hợp / Khác (1.9K)</li><li>Quận/huyện tăng: Quận 1, TP.HCM (1.5K), Quận 7, TP.HCM (848), Bình Thạnh, TP.HCM (824)</li><li>Loại hình tăng: Phòng trọ / Nhà trọ (3.3K), Căn hộ / Chung cư (2.8K), Khác / Tổng hợp (2.2K)</li><li>URL tăng mạnh nhất: /thue-phong-tro-nha-tro (187)</li></ul></div>
+<p><b>Việc cần làm:</b> Mở rộng internal link, cập nhật content, tối ưu title/meta và nhân rộng cụm landing page cùng intent.</p>
+</div>
+<div class="plan-card">
+<div class="priority">P2</div>
+<h4>Phục hồi nhóm SEO giảm</h4>
+<p><b>Lý do:</b> Loại hình giảm SEO đáng chú ý là Đất (-267).</p>
+<div class="detail-list"><b>Nhóm/URL cần xử lý</b><ul><li>Nhóm nhu cầu giảm: Giá nhà đất (-669), Dự án (-3), Tổng hợp / Khác (1.9K)</li><li>Quận/huyện giảm: Hà Đông, Hà Nội (-182), Long Biên, Hà Nội (-26), Củ Chi, TP.HCM (-23)</li><li>Loại hình giảm: Đất (-267), Dự án (-8), Đất nền / Đất dự án (44)</li><li>URL giảm mạnh nhất: /ha-noi/quan-ha-dong/mua-nha/phuong-yen-nghia-ha-dong-wid4371 (-217)</li></ul></div>
+<p><b>Việc cần làm:</b> Kiểm tra ranking, index, cannibalization, nội dung, template category và internal link.</p>
+</div></div>
+</section>
+<section class="card q3-plan-card">
+<h3>Kế hoạch SEO theo mùa vụ Q3/2026</h3>
+<p>Kế hoạch SEO Q3 cần đi cùng mùa vụ Ads: tập trung mở rộng và củng cố landing page theo loại hình BĐS có nhu cầu nóng, để Ads không chỉ kéo traffic ngắn hạn mà còn hỗ trợ tăng trưởng Organic dài hạn.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Ưu tiên</th>
+<th>Loại hình / cụm SEO</th>
+<th>Lý do mùa vụ Q3</th>
+<th>Việc SEO cần triển khai</th>
+<th>Liên kết với Ads &amp; Social</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name-cell"><b>P1</b><span>Tháng 7–8</span></td>
+<td><b>Phòng trọ / Nhà trọ</b><br/><span>phòng trọ + quận/huyện, nhà trọ + khu vực</span></td>
+<td>Nhu cầu thuê ở tăng trước giai đoạn nhập học, chuyển chỗ ở và bắt đầu chu kỳ làm việc mới sau giữa năm.</td>
+<td>
+<ul class="mini-list">
+<li>Audit và tối ưu title/meta cho các landing page phòng trọ theo địa phương.</li>
+<li>Tăng internal link từ hub BĐS, trang khu vực, bài tư vấn thuê trọ.</li>
+<li>Bổ sung nội dung FAQ: giá thuê, khu vực phù hợp sinh viên/người đi làm, lưu ý khi thuê.</li>
+</ul>
+</td>
+<td>
+<ul class="mini-list">
+<li>Ads chạy demand capture cho page đang có SEO momentum.</li>
+<li>Social làm nội dung checklist thuê trọ, khu vực nên thuê, cảnh báo khi thuê.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P1</b><span>Tháng 7–8</span></td>
+<td><b>Căn hộ / Chung cư cho thuê</b><br/><span>cho thuê căn hộ + thành phố/quận</span></td>
+<td>Nhu cầu thuê căn hộ ổn định cho học tập/làm việc trong nửa cuối năm; phù hợp với nhóm người đi làm, gia đình nhỏ.</td>
+<td>
+<ul class="mini-list">
+<li>Tối ưu landing page cho thuê căn hộ/chung cư theo thành phố và quận/huyện.</li>
+<li>Tách intent thuê căn hộ, thuê chung cư mini, thuê căn hộ gia đình nếu có đủ dữ liệu.</li>
+<li>Bổ sung block so sánh khu vực, mức giá, tiện ích quanh khu vực.</li>
+</ul>
+</td>
+<td>
+<ul class="mini-list">
+<li>Ads test cụm keyword có CPC/CTR tốt trước khi mở rộng SEO.</li>
+<li>Social làm nội dung “khu vực thuê căn hộ đáng cân nhắc”.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P1</b><span>Tháng 7–9</span></td>
+<td><b>Nhà cho thuê</b><br/><span>cho thuê nhà + quận/huyện, nhà nguyên căn</span></td>
+<td>Nhu cầu thuê nhà nguyên căn duy trì trong Q3 cho gia đình nhỏ, nhóm người đi làm và người cần chuyển nơi ở.</td>
+<td>
+<ul class="mini-list">
+<li>Ưu tiên tối ưu các page “cho thuê nhà + quận/huyện” đang có Organic tăng.</li>
+<li>Liên kết nội bộ từ các page khu vực sang page cho thuê nhà trọng điểm.</li>
+<li>Cập nhật nội dung theo intent: thuê nhà nguyên căn, thuê nhà hẻm, thuê nhà mặt tiền.</li>
+</ul>
+</td>
+<td>
+<ul class="mini-list">
+<li>Ads hỗ trợ các page đang lên Organic để tăng độ phủ SERP.</li>
+<li>Social dùng format gợi ý khu vực thuê nhà theo nhu cầu.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P2</b><span>Tháng 8–9</span></td>
+<td><b>Mặt bằng kinh doanh / Văn phòng / Nhà mặt tiền</b><br/><span>cụm thuê phục vụ kinh doanh Q4</span></td>
+<td>Cuối Q3 là thời điểm chuẩn bị mặt bằng, văn phòng, điểm bán trước mùa kinh doanh cuối năm.</td>
+<td>
+<ul class="mini-list">
+<li>Tạo/tối ưu cluster SEO cho thuê mặt bằng, văn phòng, nhà mặt tiền theo khu vực.</li>
+<li>Bổ sung nội dung về tiêu chí chọn mặt bằng, văn phòng, chi phí, khu vực phù hợp.</li>
+<li>Chuẩn bị internal link để đẩy nhóm này trước Q4.</li>
+</ul>
+</td>
+<td>
+<ul class="mini-list">
+<li>Ads chạy test intent trước khi SEO mở rộng mạnh.</li>
+<li>Social làm nội dung “chuẩn bị mặt bằng kinh doanh cuối năm”.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P3</b><span>Always-on chọn lọc</span></td>
+<td><b>Đất / Đất thổ cư</b><br/><span>mua bán, đầu tư, tìm kiếm dài hạn</span></td>
+<td>Không phải nhóm mùa vụ nóng nhất Q3, nhưng vẫn cần duy trì nếu có SEO signal tốt hoặc khu vực tăng trưởng.</td>
+<td>
+<ul class="mini-list">
+<li>Chỉ tối ưu nhóm page có Organic tăng hoặc có vị trí gần top.</li>
+<li>Không mở rộng dàn trải nếu chưa có keyword/traffic signal rõ.</li>
+<li>Chuẩn bị page/khu vực có tiềm năng cho Q4.</li>
+</ul>
+</td>
+<td>
+<ul class="mini-list">
+<li>Ads ngân sách nhỏ để test intent.</li>
+<li>Social chỉ dùng khi có insight khu vực hoặc chủ đề đủ mạnh.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-insight">
+<p><b>Insight:</b> SEO Q3 nên đi theo thứ tự ưu tiên mùa vụ: <b>nhóm thuê ở</b> trước, sau đó đến <b>nhóm mặt bằng/văn phòng/nhà mặt tiền</b> để chuẩn bị cho Q4. Nhóm đất nên chọn lọc theo SEO signal.</p>
+<p><b>Action:</b> Tạo SEO roadmap Q3 theo 3 cụm: <b>Rental SEO Sprint</b>, <b>Business Space SEO Prep</b>, và <b>Selective Land SEO</b>. Mỗi cụm cần danh sách landing page, keyword chính, internal link source và Ads/Social hỗ trợ.</p>
+</div>
+</section>
+<section class="card">
+<h3>2.2. Ads / Cross-network</h3>
+<p>Ads/Cross-network tăng 75.1K (+1011.1%). Phần này tập trung xác định cách dùng Ads để hỗ trợ SEO, kiểm chứng intent và tập trung theo mùa vụ Q3.</p>
+<div class="insight-grid">
+<div class="insight-box"><h4>Ads tăng mạnh</h4><p>Cross-network tăng <b>75.1K</b> (+1011.1%), cho thấy paid coverage được mở rộng đáng kể so với quý trước.</p></div>
+<div class="insight-box"><h4>Nhóm Ads tăng</h4><p>Nhóm nhu cầu Ads tăng mạnh nhất là <b>Cho thuê</b>; loại hình Ads tăng mạnh nhất là <b>Phòng trọ / Nhà trọ</b>.</p></div>
+<div class="insight-box"><h4>Vai trò Ads</h4><p>Ads nên được dùng để hỗ trợ landing page SEO có momentum, test nhanh intent/category và tăng độ phủ SERP cho nhóm ưu tiên.</p></div>
+</div>
+</section>
+<section class="card">
+<h3>Nhóm ưu tiên dùng Ads hỗ trợ SEO</h3>
+<p>Các landing page nên được cân nhắc chạy Ads để hỗ trợ SEO theo keyword/category ưu tiên.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>Landing page</th><th>SEO change</th><th>Δ SEO</th><th>Ads change</th><th>Δ Ads</th><th>SEO quý này</th><th>Ads quý này</th></tr></thead>
+<tbody>
+<tr>
+<td class="idx">1</td>
+<td class="url-cell" title="/thue-phong-tro-nha-tro"><b>/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:100.00%"></i></div></td>
+<td class="num pos">187</td>
+<td><div class="bar"><i class="pos" style="width:100.00%"></i></div></td>
+<td class="num pos">2.6K</td>
+<td class="num">355</td>
+<td class="num">2.6K</td>
+</tr>
+<tr>
+<td class="idx">2</td>
+<td class="url-cell" title="/ho-chi-minh/quan-7/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-7/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:22.99%"></i></div></td>
+<td class="num pos">43</td>
+<td><div class="bar"><i class="pos" style="width:66.18%"></i></div></td>
+<td class="num pos">1.7K</td>
+<td class="num">299</td>
+<td class="num">1.8K</td>
+</tr>
+<tr>
+<td class="idx">3</td>
+<td class="url-cell" title="/ho-chi-minh/thue-phong-tro-nha-tro"><b>/ho-chi-minh/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:6.42%"></i></div></td>
+<td class="num pos">12</td>
+<td><div class="bar"><i class="pos" style="width:61.21%"></i></div></td>
+<td class="num pos">1.6K</td>
+<td class="num">162</td>
+<td class="num">1.7K</td>
+</tr>
+<tr>
+<td class="idx">4</td>
+<td class="url-cell" title="/ho-chi-minh/quan-binh-thanh/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-binh-thanh/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:0.00%"></i></div></td>
+<td class="num pos">0</td>
+<td><div class="bar"><i class="pos" style="width:45.10%"></i></div></td>
+<td class="num pos">1.2K</td>
+<td class="num">298</td>
+<td class="num">1.2K</td>
+</tr>
+<tr>
+<td class="idx">5</td>
+<td class="url-cell" title="/ho-chi-minh/quan-go-vap/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-go-vap/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:44.39%"></i></div></td>
+<td class="num pos">83</td>
+<td><div class="bar"><i class="pos" style="width:35.78%"></i></div></td>
+<td class="num pos">913</td>
+<td class="num">246</td>
+<td class="num">948</td>
+</tr>
+<tr>
+<td class="idx">6</td>
+<td class="url-cell" title="/ho-chi-minh/quan-tan-binh/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-tan-binh/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="neg" style="width:2.67%"></i></div></td>
+<td class="num neg">-5</td>
+<td><div class="bar"><i class="pos" style="width:36.13%"></i></div></td>
+<td class="num pos">922</td>
+<td class="num">114</td>
+<td class="num">948</td>
+</tr>
+<tr>
+<td class="idx">7</td>
+<td class="url-cell" title="/ho-chi-minh/thue-nha"><b>/ho-chi-minh/thue-nha</b></td>
+<td><div class="bar"><i class="neg" style="width:3.21%"></i></div></td>
+<td class="num neg">-6</td>
+<td><div class="bar"><i class="pos" style="width:34.99%"></i></div></td>
+<td class="num pos">893</td>
+<td class="num">91</td>
+<td class="num">950</td>
+</tr>
+<tr>
+<td class="idx">8</td>
+<td class="url-cell" title="/ho-chi-minh/quan-tan-phu/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-tan-phu/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:1.07%"></i></div></td>
+<td class="num pos">2</td>
+<td><div class="bar"><i class="pos" style="width:28.57%"></i></div></td>
+<td class="num pos">729</td>
+<td class="num">227</td>
+<td class="num">754</td>
+</tr>
+<tr>
+<td class="idx">9</td>
+<td class="url-cell" title="/ha-noi/thue-mat-bang-cua-hang-shop"><b>/ha-noi/thue-mat-bang-cua-hang-shop</b></td>
+<td><div class="bar"><i class="pos" style="width:8.56%"></i></div></td>
+<td class="num pos">16</td>
+<td><div class="bar"><i class="pos" style="width:27.04%"></i></div></td>
+<td class="num pos">690</td>
+<td class="num">59</td>
+<td class="num">716</td>
+</tr>
+<tr>
+<td class="idx">10</td>
+<td class="url-cell" title="/ho-chi-minh/quan-10/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-10/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="neg" style="width:11.23%"></i></div></td>
+<td class="num neg">-21</td>
+<td><div class="bar"><i class="pos" style="width:27.74%"></i></div></td>
+<td class="num pos">708</td>
+<td class="num">150</td>
+<td class="num">752</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Danh sách này ưu tiên URL có SEO tăng, Ads tăng hoặc Organic hiện tại đáng kể. Đây là nhóm phù hợp để dùng Ads tăng độ phủ và kiểm chứng thêm demand.</p><p><b>Action:</b> Tạo campaign theo cụm keyword/category, đo CTR/CPC/engagement và theo dõi biến động Organic theo tuần.</p></div>
+</section>
+<section class="card q3-plan-card">
+<h3>Kế hoạch chạy Ads theo mùa vụ Q3/2026 theo loại hình BĐS</h3>
+<p>Kế hoạch Ads Q3 nên ưu tiên loại hình có khả năng phát sinh nhu cầu nóng theo mùa vụ, sau đó chọn landing page cụ thể dựa trên SEO/Ads signal.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Ưu tiên</th><th>Loại hình BĐS</th><th>Lý do mùa vụ Q3</th><th>Tín hiệu từ data hiện tại</th><th>Hướng triển khai Ads</th></tr></thead>
+<tbody>
+<tr>
+<td class="name-cell"><b>P1</b><span>Tháng 7–8</span></td>
+<td><b>Phòng trọ / Nhà trọ</b></td>
+<td>Nhu cầu thuê ở, nhập học, chuyển chỗ ở, người đi làm.</td>
+<td>Total 50.7K (+90.2%); SEO 3.3K; Ads 23.0K</td>
+<td>Chạy Ads theo cụm phòng trọ + quận/huyện; ưu tiên TP.HCM và các quận có SEO/Ads signal.</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P1</b><span>Tháng 7–8</span></td>
+<td><b>Căn hộ / Chung cư cho thuê</b></td>
+<td>Nhu cầu thuê căn hộ ổn định cho nửa cuối năm.</td>
+<td>Total 9.1K (+4.8%); SEO 2.8K; Ads 18.7K</td>
+<td>Tách campaign cho thuê căn hộ/chung cư theo địa phương; đo CTR/CPC theo quận.</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P1</b><span>Tháng 7–9</span></td>
+<td><b>Nhà cho thuê</b></td>
+<td>Nhu cầu thuê nhà nguyên căn/nhà hẻm cho gia đình nhỏ, nhóm người đi làm.</td>
+<td>Total 33.6K (+109.3%); SEO 1.5K; Ads 7.3K</td>
+<td>Ưu tiên landing page cho thuê nhà có SEO momentum; dùng Ads tăng độ phủ SERP.</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P2</b><span>Tháng 8–9</span></td>
+<td><b>Mặt bằng kinh doanh / Văn phòng / Nhà mặt tiền</b></td>
+<td>Chuẩn bị mặt bằng, văn phòng, điểm bán trước mùa kinh doanh Q4.</td>
+<td>Mặt bằng: Total 7.7K (+28.7%); SEO 1.7K; Ads 6.3K; Văn phòng: Total -1.2K (-17.5%); SEO 178; Ads 127; Nhà mặt tiền: Total -7.9K (-13.3%); SEO 781; Ads 1.7K</td>
+<td>Chạy test Ads theo cụm địa phương + loại hình; dùng kết quả để chọn SEO roadmap Q4.</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P3</b><span>Always-on chọn lọc</span></td>
+<td><b>Đất / Đất thổ cư</b></td>
+<td>Không phải nhóm mùa vụ nóng nhất Q3 nhưng có thể giữ nhóm SEO đang tăng.</td>
+<td>Đất: Total -4.8K (-15.4%); SEO -267; Ads 2.0K; Đất thổ cư: Total -10.4K (-43.0%); SEO 69; Ads 51</td>
+<td>Chỉ chạy ngân sách nhỏ cho landing page có SEO signal tốt.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight">
+<p><b>Insight:</b> Với Q3, nhóm nên ưu tiên Ads là <b>Phòng trọ/Nhà trọ</b>, <b>Căn hộ/Chung cư cho thuê</b>, <b>Nhà cho thuê</b>, sau đó đến <b>Mặt bằng kinh doanh/Văn phòng/Nhà mặt tiền</b>. Nhóm Đất nên chạy chọn lọc theo SEO signal.</p>
+<p><b>Action:</b> Chia ngân sách Q3 thành 3 cụm: <b>Rental Demand Capture</b>, <b>Business Space Test</b>, và <b>SEO Winners Protection</b>.</p>
+</div>
+</section>
+<section class="card">
+<h3>Paid growth pages</h3>
+<p>Landing page tăng Cross-network mạnh nhất.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>Landing page</th><th>Mức tăng/giảm</th><th>Quý trước</th><th>Quý này</th><th>Δ sessions</th><th>%Δ</th></tr></thead>
+<tbody>
+<tr>
+<td class="idx">1</td>
+<td class="url-cell" title="/thue-phong-tro-nha-tro"><b>/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:100.00%"></i></div></td>
+<td class="num">18</td>
+<td class="num">2,570</td>
+<td class="num pos">2.6K</td>
+<td class="num pos">+14177.8%</td>
+</tr>
+<tr>
+<td class="idx">2</td>
+<td class="url-cell" title="/ho-chi-minh/quan-7/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-7/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:66.18%"></i></div></td>
+<td class="num">84</td>
+<td class="num">1,773</td>
+<td class="num pos">1.7K</td>
+<td class="num pos">+2010.7%</td>
+</tr>
+<tr>
+<td class="idx">3</td>
+<td class="url-cell" title="/ho-chi-minh/thue-phong-tro-nha-tro"><b>/ho-chi-minh/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:61.21%"></i></div></td>
+<td class="num">104</td>
+<td class="num">1,666</td>
+<td class="num pos">1.6K</td>
+<td class="num pos">+1501.9%</td>
+</tr>
+<tr>
+<td class="idx">4</td>
+<td class="url-cell" title="/ho-chi-minh/quan-binh-thanh/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-binh-thanh/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:45.10%"></i></div></td>
+<td class="num">26</td>
+<td class="num">1,177</td>
+<td class="num pos">1.2K</td>
+<td class="num pos">+4426.9%</td>
+</tr>
+<tr>
+<td class="idx">5</td>
+<td class="url-cell" title="/ho-chi-minh/quan-tan-binh/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-tan-binh/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:36.13%"></i></div></td>
+<td class="num">26</td>
+<td class="num">948</td>
+<td class="num pos">922</td>
+<td class="num pos">+3546.2%</td>
+</tr>
+<tr>
+<td class="idx">6</td>
+<td class="url-cell" title="/ho-chi-minh/quan-go-vap/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-go-vap/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:35.78%"></i></div></td>
+<td class="num">35</td>
+<td class="num">948</td>
+<td class="num pos">913</td>
+<td class="num pos">+2608.6%</td>
+</tr>
+<tr>
+<td class="idx">7</td>
+<td class="url-cell" title="/ho-chi-minh/thue-nha"><b>/ho-chi-minh/thue-nha</b></td>
+<td><div class="bar"><i class="pos" style="width:34.99%"></i></div></td>
+<td class="num">57</td>
+<td class="num">950</td>
+<td class="num pos">893</td>
+<td class="num pos">+1566.7%</td>
+</tr>
+<tr>
+<td class="idx">8</td>
+<td class="url-cell" title="/ho-chi-minh/quan-tan-phu/thue-phong-tro-nha-tro"><b>/ho-chi-minh/quan-tan-phu/thue-phong-tro-nha-tro</b></td>
+<td><div class="bar"><i class="pos" style="width:28.57%"></i></div></td>
+<td class="num">25</td>
+<td class="num">754</td>
+<td class="num pos">729</td>
+<td class="num pos">+2916.0%</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Page tăng mạnh nhất là /thue-phong-tro-nha-tro với 2.6K sessions (+14177.8%).</p><p><b>Action:</b> Giữ và kiểm tra nhóm page tăng paid để xác định cụm keyword/category đang có hiệu quả traffic tốt.</p></div>
+</section>
+<section class="card">
+<h3>Paid decline / coverage gap</h3>
+<p>Landing page giảm Cross-network mạnh nhất.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>Landing page</th><th>Mức tăng/giảm</th><th>Quý trước</th><th>Quý này</th><th>Δ sessions</th><th>%Δ</th></tr></thead>
+<tbody>
+<tr>
+<td class="idx">1</td>
+<td class="url-cell" title="/mua-nha-dat"><b>/mua-nha-dat</b></td>
+<td><div class="bar"><i class="neg" style="width:100.00%"></i></div></td>
+<td class="num">1,021</td>
+<td class="num">494</td>
+<td class="num neg">-527</td>
+<td class="num neg">-51.6%</td>
+</tr>
+<tr>
+<td class="idx">2</td>
+<td class="url-cell" title="/quan-8/thue-can-ho-chung-cu/can-ho-chung-cu-lon-moi-2pn-ve-quan-1-chi-20phut-gym-yoga-ho-boi-id21566476"><b>/quan-8/thue-can-ho-chung-cu/can-ho-chung-cu-lon-moi-2pn-ve-quan-1-chi-20phut-gym-yoga-ho-boi-i…</b></td>
+<td><div class="bar"><i class="neg" style="width:2.28%"></i></div></td>
+<td class="num">12</td>
+<td class="num">0</td>
+<td class="num neg">-12</td>
+<td class="num neg">-100.0%</td>
+</tr>
+<tr>
+<td class="idx">3</td>
+<td class="url-cell" title="/ho-chi-minh/quan-9/mua-can-ho-chung-cu/flora-fuji-prj4507"><b>/ho-chi-minh/quan-9/mua-can-ho-chung-cu/flora-fuji-prj4507</b></td>
+<td><div class="bar"><i class="neg" style="width:1.52%"></i></div></td>
+<td class="num">8</td>
+<td class="num">0</td>
+<td class="num neg">-8</td>
+<td class="num neg">-100.0%</td>
+</tr>
+<tr>
+<td class="idx">4</td>
+<td class="url-cell" title="/quan-1/thue-can-ho-chung-cu/can-ho-1pn-53m2-vinhomes-golden-river-bason-q-1-20tr-thang-full-nt-id22480839"><b>/quan-1/thue-can-ho-chung-cu/can-ho-1pn-53m2-vinhomes-golden-river-bason-q-1-20tr-thang-full-nt…</b></td>
+<td><div class="bar"><i class="neg" style="width:1.14%"></i></div></td>
+<td class="num">6</td>
+<td class="num">0</td>
+<td class="num neg">-6</td>
+<td class="num neg">-100.0%</td>
+</tr>
+<tr>
+<td class="idx">5</td>
+<td class="url-cell" title="/quan-thu-duc/thue-nha-kho/cho-thue-kho-xuong-500m2-1000m2-2000m2-gan-ql-1a-tam-binh-thu-duc-id22708282"><b>/quan-thu-duc/thue-nha-kho/cho-thue-kho-xuong-500m2-1000m2-2000m2-gan-ql-1a-tam-binh-thu-duc-id…</b></td>
+<td><div class="bar"><i class="neg" style="width:1.14%"></i></div></td>
+<td class="num">6</td>
+<td class="num">0</td>
+<td class="num neg">-6</td>
+<td class="num neg">-100.0%</td>
+</tr>
+<tr>
+<td class="idx">6</td>
+<td class="url-cell" title="/ha-noi/huyen-thuong-tin/mua-dat"><b>/ha-noi/huyen-thuong-tin/mua-dat</b></td>
+<td><div class="bar"><i class="neg" style="width:0.95%"></i></div></td>
+<td class="num">5</td>
+<td class="num">0</td>
+<td class="num neg">-5</td>
+<td class="num neg">-100.0%</td>
+</tr>
+<tr>
+<td class="idx">7</td>
+<td class="url-cell" title="/moi-gioi/0906379188-ngo-ngoc-uid12108843"><b>/moi-gioi/0906379188-ngo-ngoc-uid12108843</b></td>
+<td><div class="bar"><i class="neg" style="width:0.76%"></i></div></td>
+<td class="num">4</td>
+<td class="num">0</td>
+<td class="num neg">-4</td>
+<td class="num neg">-100.0%</td>
+</tr>
+<tr>
+<td class="idx">8</td>
+<td class="url-cell" title="/ha-noi/mua-dat-tho-cu"><b>/ha-noi/mua-dat-tho-cu</b></td>
+<td><div class="bar"><i class="neg" style="width:0.76%"></i></div></td>
+<td class="num">4</td>
+<td class="num">0</td>
+<td class="num neg">-4</td>
+<td class="num neg">-100.0%</td>
+</tr></tbody>
+</table>
+</div>
+<div class="table-insight"><p><b>Insight:</b> Page giảm mạnh nhất là /mua-nha-dat với -527 sessions (-51.6%).</p><p><b>Action:</b> Không kết luận kém hiệu quả nếu chưa có cost/conversion; dùng danh sách này để kiểm tra paid coverage và ngân sách.</p></div>
+</section>
+<section class="card action-card">
+<h3>Action plan cho Ads / Cross-network</h3>
+<p>Kế hoạch triển khai ngay sau phần phân tích kênh.</p>
+<div class="plan-grid">
+<div class="plan-card">
+<div class="priority">P1</div>
+<h4>Dùng Ads hỗ trợ nhóm SEO có momentum</h4>
+<p><b>Lý do:</b> Ads tăng 75.1K (+1011.1%), có thể dùng để tăng độ phủ cho page SEO đang tăng.</p>
+<div class="detail-list"><b>Nhóm/URL cần xử lý</b><ul><li>Nhóm nhu cầu Ads tăng: Cho thuê (54.8K), Mua bán (15.3K), Giá nhà đất (649)</li><li>Loại hình Ads tăng: Phòng trọ / Nhà trọ (23.0K), Căn hộ / Chung cư (18.7K), Nhà bán (7.7K)</li><li>URL ưu tiên hỗ trợ SEO: /thue-phong-tro-nha-tro, /ho-chi-minh/quan-7/thue-phong-tro-nha-tro, /ho-chi-minh/thue-phong-tro-nha-tro</li></ul></div>
+<p><b>Việc cần làm:</b> Tạo campaign theo cụm keyword/category, đo CTR/CPC/engagement và biến động Organic theo tuần.</p>
+</div>
+<div class="plan-card">
+<div class="priority">P2</div>
+<h4>Chạy Ads theo mùa vụ Q3</h4>
+<p><b>Lý do:</b> Q3 thường phù hợp với nhóm thuê ở và chuẩn bị mặt bằng kinh doanh; data Mogi đang có nhiều URL thuê phòng trọ/căn hộ tăng Ads.</p>
+<div class="detail-list"><b>Nhóm/URL cần xử lý</b><ul><li>P1: Phòng trọ / Nhà trọ</li><li>P1: Căn hộ / Chung cư cho thuê</li><li>P1: Nhà cho thuê</li><li>P2: Mặt bằng kinh doanh / Văn phòng / Nhà mặt tiền</li></ul></div>
+<p><b>Việc cần làm:</b> Chia campaign theo loại hình + khu vực, không phủ toàn bộ danh mục.</p>
+</div></div>
+</section>
+
+
+
+
+<section class="card q3-plan-card">
+<h3>Kế hoạch Social theo mùa vụ Q3/2026</h3>
+<p>Data hiện tại không có cột Organic Social riêng, nên kế hoạch Social bên dưới là kế hoạch triển khai nội dung/UTM để hỗ trợ SEO và Ads; cần đo bằng UTM, reach, engagement, CTR và assisted traffic. Social không nên chạy rời rạc theo bài lẻ, mà nên bám vào các cụm landing page SEO/Ads ưu tiên trong Q3.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Ưu tiên</th>
+<th>Chủ đề Social Q3</th>
+<th>Loại hình hỗ trợ</th>
+<th>Nội dung nên triển khai</th>
+<th>Vai trò hỗ trợ SEO &amp; Ads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name-cell"><b>P1</b><span>Tháng 7–8</span></td>
+<td><b>Mùa tìm phòng / chuyển chỗ ở</b></td>
+<td>Phòng trọ, nhà trọ, căn hộ cho thuê, nhà cho thuê</td>
+<td>
+<ul class="mini-list">
+<li>Checklist thuê phòng/trọ/căn hộ an toàn.</li>
+<li>Gợi ý khu vực phù hợp sinh viên, người đi làm, gia đình nhỏ.</li>
+<li>So sánh phòng trọ, căn hộ, nhà nguyên căn theo nhu cầu.</li>
+<li>Post ngắn dẫn về landing page địa phương đang được SEO/Ads ưu tiên.</li>
+</ul>
+</td>
+<td>
+<ul class="mini-list">
+<li>Tăng nhận diện cho landing page thuê ở trong giai đoạn nhu cầu nóng.</li>
+<li>Tạo tín hiệu click/engagement bổ trợ cho Ads test intent.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P1</b><span>Tháng 7–9</span></td>
+<td><b>Gợi ý khu vực theo nhu cầu sống</b></td>
+<td>Nhà cho thuê, căn hộ cho thuê, phòng trọ theo quận/huyện</td>
+<td>
+<ul class="mini-list">
+<li>Series “Nên thuê ở đâu nếu làm việc/học tập tại khu vực X”.</li>
+<li>Top khu vực dễ thuê, tiện đi lại, nhiều lựa chọn.</li>
+<li>Video/ngắn carousel giới thiệu landing page khu vực.</li>
+</ul>
+</td>
+<td>
+<ul class="mini-list">
+<li>Hỗ trợ SEO địa phương bằng cách điều hướng traffic về page quận/huyện.</li>
+<li>Cung cấp insight creative cho Ads theo location intent.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P2</b><span>Tháng 8–9</span></td>
+<td><b>Chuẩn bị mặt bằng kinh doanh cuối năm</b></td>
+<td>Mặt bằng kinh doanh, văn phòng, nhà mặt tiền</td>
+<td>
+<ul class="mini-list">
+<li>Checklist chọn mặt bằng trước mùa kinh doanh Q4.</li>
+<li>Các tiêu chí chọn văn phòng/mặt bằng/nhà mặt tiền.</li>
+<li>Gợi ý khu vực phù hợp mở điểm bán, văn phòng nhỏ.</li>
+</ul>
+</td>
+<td>
+<ul class="mini-list">
+<li>Hỗ trợ Ads test intent “mặt bằng/văn phòng/nhà mặt tiền”.</li>
+<li>Tạo topical support cho SEO cluster kinh doanh.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="name-cell"><b>P3</b><span>Always-on chọn lọc</span></td>
+<td><b>Insight thị trường / giá / khu vực</b></td>
+<td>Đất, nhà bán, căn hộ bán, trang giá nhà đất</td>
+<td>
+<ul class="mini-list">
+<li>Nội dung dạng insight giá, xu hướng tìm kiếm, khu vực được quan tâm.</li>
+<li>Không chạy dày nếu không có dữ liệu/insight đủ mạnh.</li>
+<li>Ưu tiên post dẫn về page SEO có tín hiệu tăng.</li>
+</ul>
+</td>
+<td>
+<ul class="mini-list">
+<li>Hỗ trợ brand/search demand gián tiếp.</li>
+<li>Tăng độ phủ cho page SEO winners hoặc page cần test intent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-insight">
+<p><b>Insight:</b> Social Q3 nên đóng vai trò <b>amplification layer</b> cho SEO và Ads. Trọng tâm nội dung là nhu cầu thuê ở trong tháng 7–8 và nhu cầu chuẩn bị mặt bằng/văn phòng trước Q4 trong tháng 8–9.</p>
+<p><b>Action:</b> Tạo lịch Social theo 3 cụm: <b>Rental Content Series</b>, <b>Location Recommendation Series</b>, và <b>Business Space Prep Series</b>. Mỗi post cần gắn URL landing page và UTM để đo lại trong GA4.</p>
+</div>
+</section>
+
+<div class="footer">Generated from data · Report traffic bất động sản Mogi.vn · v3 no Referral/Unassigned section</div>
+</main>
+</body>
+</html>
