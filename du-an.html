@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Report trang dự án Muaban.net</title>
+<style>
+:root{--ink:#172033;--muted:#667085;--line:#e4e9f2;--blue:#2563eb;--green:#12b981;--red:#ef476f;--amber:#f59e0b;--purple:#7c3aed;--card:#fff;--shadow:0 18px 45px rgba(20,31,56,.08)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,#eef4ff 0%,#f7f9fc 30%,#f6f8fc 100%);color:var(--ink);line-height:1.55}
+.wrap{width:min(1260px,calc(100% - 36px));margin:0 auto;padding:32px 0 56px}
+.hero{padding:34px;border-radius:28px;color:#fff;background:radial-gradient(circle at 82% 18%,rgba(56,189,248,.22),transparent 30%),linear-gradient(135deg,#102045 0%,#1d4ed8 54%,#0f766e 100%);box-shadow:var(--shadow)}
+.eyebrow{display:inline-flex;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:850}
+h1{max-width:1080px;margin:18px 0 12px;font-size:clamp(32px,4vw,56px);line-height:1.04;letter-spacing:-.045em}
+.hero p{max-width:1080px;margin:0;color:rgba(255,255,255,.84);font-size:17px}
+.periods{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.pill{padding:10px 13px;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:760}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin:18px 0}
+.kpi,.card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}
+.kpi{min-height:132px;padding:18px}
+.kpi-label{color:var(--muted);text-transform:uppercase;font-size:11px;font-weight:850;letter-spacing:.08em}
+.kpi-value{margin-top:8px;font-size:clamp(26px,3vw,36px);font-weight:900;letter-spacing:-.035em}
+.kpi-note{margin-top:8px;color:var(--muted);font-size:12px}
+.pos{color:var(--green)}.neg{color:var(--red)}.warn{color:var(--amber)}.neutral{color:var(--blue)}
+.card{padding:24px;margin-top:16px;overflow:visible}
+.card h3{margin:0;font-size:22px;letter-spacing:-.02em}
+.card p{margin:7px 0 0;color:var(--muted);font-size:15px}
+.section-title{margin:30px 0 12px;padding:20px 24px;border-radius:24px;background:#172033;color:#fff;box-shadow:var(--shadow)}
+.section-title h2{margin:0;font-size:30px;letter-spacing:-.03em}
+.section-title p{margin:8px 0 0;color:rgba(255,255,255,.78);font-size:16px}
+.alert,.warnbox,.supplybox{margin-top:16px;padding:18px 20px;border-radius:20px;box-shadow:var(--shadow);font-size:14px}
+.alert{border:1px solid #bfdbfe;background:#eff6ff;color:#24436e}
+.warnbox{border:1px solid #fde68a;background:#fffbeb;color:#6b4e16}
+.supplybox{border:1px solid #fecdd3;background:#fff1f2;color:#9f1239}
+.table-wrap{width:100%;overflow-x:auto;margin-top:18px;border:1px solid var(--line);border-radius:18px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:980px}
+th{background:#eef4ff;color:#33507e;text-align:center;font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding:12px 14px;white-space:nowrap;vertical-align:middle}
+td{padding:14px;border-top:1px solid var(--line);vertical-align:middle;text-align:center}
+th:first-child,td:first-child{text-align:left}
+.name-cell b,.url-cell b,.query-cell b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#1d2939;font-size:15px;text-align:left}
+.name-cell span,.url-cell span,.query-cell span{display:block;color:var(--muted);font-size:12px;margin-top:3px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.num{text-align:center;white-space:nowrap;font-weight:900}
+.tag{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap}
+.warn-tag{background:#fffbeb;color:#92400e;border:1px solid #fde68a}
+.neg-tag{background:#fff1f2;color:#be123c;border:1px solid #fecdd3}
+.pos-tag{background:#ecfdf5;color:#047857;border:1px solid #a7f3d0}
+.bar{height:18px;background:#e7edf7;border:1px solid var(--line);border-radius:999px;overflow:hidden;min-width:180px}
+.bar i{display:block;height:100%;border-radius:999px;min-width:4px}
+.bar .pos{background:var(--green)}.bar .neg{background:var(--red)}.bar .warn{background:var(--amber)}.bar .neutral{background:var(--blue)}
+.table-insight{margin-top:14px;padding:15px 16px;border-radius:16px;background:#eff6ff;border:1px solid #bfdbfe;color:#24436e}
+.table-insight p{margin:0;color:#24436e;font-size:14px}
+.table-insight p + p{margin-top:6px}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.plan-card{border:1px solid var(--line);border-radius:18px;background:#fbfcff;padding:18px}
+.priority{display:inline-grid;place-items:center;width:48px;height:34px;border-radius:10px;background:#1d4ed8;color:#fff;font-weight:900;margin-bottom:12px}
+.plan-card h4{margin:0 0 8px;font-size:17px}
+.plan-card p{margin:0;color:var(--muted);font-size:14px}
+.detail-list{margin-top:12px;border:1px dashed #bfd3f6;border-radius:14px;padding:12px;background:#f8fbff}
+.detail-list b{display:block;margin-bottom:8px;color:#172033;font-size:13px}
+.detail-list ul{margin:0;padding-left:18px;color:#344054;font-size:13px}
+.detail-list li{margin:5px 0}
+.footer{margin-top:22px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:1280px){.kpis{grid-template-columns:repeat(2,1fr)}.plan-grid{grid-template-columns:1fr}}
+@media(max-width:720px){.wrap{width:min(100% - 20px,1260px);padding-top:16px}.hero,.card{padding:20px;border-radius:22px}h1{font-size:30px}.section-title h2{font-size:24px}table{min-width:920px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="hero">
+<span class="eyebrow">Google Search Console · Trang dự án</span>
+<h1>Report trang dự án Muaban.net</h1>
+<p>Báo cáo tổng hợp dữ liệu Google Search Console cho nhóm URL dự án. Mục tiêu là xác định URL/cụm dự án có nhu cầu tìm kiếm cao để ưu tiên bổ sung inventory. Với bối cảnh category dự án hiện có rất ít tin đăng, hướng triển khai khả thi được tập trung vào việc thu thập, chuẩn hóa và bổ sung dữ liệu tin đăng từ nguồn ngoài có kiểm soát.</p>
+<div class="periods">
+<span class="pill">Nguồn: Google Search Console Export</span>
+<span class="pill">File: Data trang dự án</span>
+<span class="pill">Rows: 3,827 query-page pairs</span>
+</div>
+</section>
+<section class="kpis">
+<div class="kpi">
+<div class="kpi-label">Clicks</div>
+<div class="kpi-value neutral">735</div>
+<div class="kpi-note">Impressions 77.3K · CTR 0.95%</div>
+</div>
+<div class="kpi">
+<div class="kpi-label">Unique queries</div>
+<div class="kpi-value neutral">3,406</div>
+<div class="kpi-note">3,827 query-page rows</div>
+</div>
+<div class="kpi">
+<div class="kpi-label">Category URL dự án</div>
+<div class="kpi-value neutral">879</div>
+<div class="kpi-note">318 URL tin chi tiết trong data</div>
+</div>
+<div class="kpi">
+<div class="kpi-label">Avg position</div>
+<div class="kpi-value neutral">16.5</div>
+<div class="kpi-note">Weighted by impressions</div>
+</div>
+<div class="kpi">
+<div class="kpi-label">Raw Top 10 queries</div>
+<div class="kpi-value pos">551</div>
+<div class="kpi-note">Filtered target Top 10: 251</div>
+</div>
+<div class="kpi">
+<div class="kpi-label">Quick-win 11–20</div>
+<div class="kpi-value warn">964</div>
+<div class="kpi-note">31.3K impressions</div>
+</div>
+</section>
+<section class="section-title">
+<h2>1. Tổng quan nhu cầu tìm kiếm</h2>
+<p>Xác định quy mô keyword theo nhóm vị trí.</p>
+</section>
+<section class="card">
+<h3>Phân bổ keyword theo vị trí</h3>
+<p>Tổng quan số lượng keyword theo nhóm vị trí.</p>
+<div class="table-wrap"><table><thead><tr><th>Bucket</th><th>Impression weight</th><th>Queries</th><th>URLs</th><th>Clicks</th><th>Impressions</th><th>CTR</th></tr></thead><tbody><tr><td class="name-cell"><b>Top 1–10</b></td><td><div class="bar"><i class="pos" style="width:73.34%"></i></div></td><td class="num">551</td><td class="num">308</td><td class="num">451</td><td class="num">22,922</td><td class="num">1.97%</td></tr><tr><td class="name-cell"><b>Top 11–20</b></td><td><div class="bar"><i class="warn" style="width:100.00%"></i></div></td><td class="num">964</td><td class="num">461</td><td class="num">247</td><td class="num">31,254</td><td class="num">0.79%</td></tr><tr><td class="name-cell"><b>Top 21–50</b></td><td><div class="bar"><i class="neg" style="width:73.08%"></i></div></td><td class="num">2,044</td><td class="num">885</td><td class="num">36</td><td class="num">22,841</td><td class="num">0.16%</td></tr><tr><td class="name-cell"><b>Top 51+</b></td><td><div class="bar"><i class="neg" style="width:0.88%"></i></div></td><td class="num">47</td><td class="num">41</td><td class="num">1</td><td class="num">274</td><td class="num">0.36%</td></tr></tbody></table></div>
+<div class="table-insight"><p><b>Kết luận:</b> Nhóm Top 11–20 là nguồn ưu tiên để mở rộng Top 10.</p><p><b>Quyết định cần làm:</b> Quyết định: chọn keyword 11–20 gắn với URL có inventory hoặc có owner bổ sung tin.</p></div>
+</section>
+<section class="section-title">
+<h2>2. URL dự án cần ưu tiên bổ sung tin đăng</h2>
+<p>Xác định URL có nhu cầu tìm kiếm cao để ưu tiên bổ sung inventory.</p>
+</section>
+<section class="card">
+<h3>Project Category Supply Priority</h3>
+<p>Danh sách URL dự án có nhu cầu tìm kiếm cao, dùng để ưu tiên bổ sung tin đăng.</p>
+<div class="table-wrap"><table><thead><tr><th>URL dự án</th><th>Queries</th><th>Impressions</th><th>Clicks</th><th>Avg pos</th><th>Top 10</th><th>Quick 11–20</th><th>Action</th></tr></thead><tbody><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-anh-tuan-apartment-huyen-nha-be-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-anh-tuan-apartment-huyen-nha-be-ho-chi-minh</b><span>Anh Tuan Apartment · TP.HCM</span></td><td class="num">9</td><td class="num">1,096</td><td class="num">68</td><td class="num">9.6</td><td class="num">5</td><td class="num">3</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-vinhomes-grand-park-quan-9-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-vinhomes-grand-park-quan-9-ho-chi-minh</b><span>Vinhomes Grand Park · TP.HCM</span></td><td class="num">99</td><td class="num">2,771</td><td class="num">11</td><td class="num">14.3</td><td class="num">18</td><td class="num">49</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-phu-tho-quan-11-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-phu-tho-quan-11-ho-chi-minh</b><span>Chung Cu Phu Tho · TP.HCM</span></td><td class="num">17</td><td class="num">2,358</td><td class="num">23</td><td class="num">8.4</td><td class="num">12</td><td class="num">5</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-lu-gia-plaza-quan-11-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-lu-gia-plaza-quan-11-ho-chi-minh</b><span>Lu Gia Plaza · TP.HCM</span></td><td class="num">16</td><td class="num">1,471</td><td class="num">28</td><td class="num">7.8</td><td class="num">11</td><td class="num">2</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-binh-khanh-quan-2-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-binh-khanh-quan-2-ho-chi-minh</b><span>Can Ho Binh Khanh · TP.HCM</span></td><td class="num">37</td><td class="num">1,336</td><td class="num">8</td><td class="num">11.0</td><td class="num">19</td><td class="num">11</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-nguyen-kim-quan-10-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-nguyen-kim-quan-10-ho-chi-minh</b><span>Chung Cu Nguyen Kim · TP.HCM</span></td><td class="num">12</td><td class="num">633</td><td class="num">16</td><td class="num">11.4</td><td class="num">8</td><td class="num">2</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-chung-cu-b2-truong-sa-quan-binh-thanh-ho-chi-minh">https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-chung-cu-b2-truong-sa-quan-binh-thanh-ho…</b><span>Chung Cu B2 Truong Sa Quan Binh Thanh · TP.HCM</span></td><td class="num">11</td><td class="num">543</td><td class="num">19</td><td class="num">10.8</td><td class="num">2</td><td class="num">5</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-cao-cap-orient-apartment-quan-4-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-cao-cap-orient-apartment-quan-4-ho-chi…</b><span>Can Ho Cao Cap Orient Apartment · TP.HCM</span></td><td class="num">8</td><td class="num">508</td><td class="num">20</td><td class="num">15.8</td><td class="num">3</td><td class="num">0</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-481-ben-ba-dinh-quan-8-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-481-ben-ba-dinh-quan-8-ho-chi-minh</b><span>Chung Cu 481 Ben Ba Dinh · TP.HCM</span></td><td class="num">7</td><td class="num">142</td><td class="num">19</td><td class="num">10.0</td><td class="num">4</td><td class="num">2</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-binh-minh-quan-2-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-binh-minh-quan-2-ho-chi-minh</b><span>Chung Cu Binh Minh · TP.HCM</span></td><td class="num">12</td><td class="num">983</td><td class="num">9</td><td class="num">10.9</td><td class="num">4</td><td class="num">6</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-an-thinh-quan-2-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-an-thinh-quan-2-ho-chi-minh</b><span>Can Ho An Thinh · TP.HCM</span></td><td class="num">21</td><td class="num">689</td><td class="num">10</td><td class="num">12.1</td><td class="num">7</td><td class="num">3</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-chung-cu-ngo-gia-tu-quan-10-ho-chi-minh">https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-chung-cu-ngo-gia-tu-quan-10-ho-chi-minh</b><span>Chung Cu Ngo Gia Tu · TP.HCM</span></td><td class="num">5</td><td class="num">288</td><td class="num">15</td><td class="num">7.4</td><td class="num">4</td><td class="num">1</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-chung-cu-phu-tho-quan-11-ho-chi-minh">https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-chung-cu-phu-tho-quan-11-ho-chi-minh</b><span>Chung Cu Phu Tho · TP.HCM</span></td><td class="num">7</td><td class="num">605</td><td class="num">11</td><td class="num">8.9</td><td class="num">5</td><td class="num">0</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-tanibuilding-son-ky-2-quan-tan-phu-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-tanibuilding-son-ky-2-quan-tan-phu-ho-chi-minh</b><span>Tanibuilding Son Ky 2 Quan Tan Phu · TP.HCM</span></td><td class="num">17</td><td class="num">815</td><td class="num">7</td><td class="num">14.4</td><td class="num">2</td><td class="num">7</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-the-parkland-quan-12-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-the-parkland-quan-12-ho-chi-minh</b><span>The Parkland · TP.HCM</span></td><td class="num">12</td><td class="num">638</td><td class="num">7</td><td class="num">11.7</td><td class="num">7</td><td class="num">2</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-ha-do-riverside-quan-12-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-ha-do-riverside-quan-12-ho-chi-minh</b><span>Ha Do Riverside · TP.HCM</span></td><td class="num">15</td><td class="num">778</td><td class="num">6</td><td class="num">11.7</td><td class="num">3</td><td class="num">6</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-le-thi-rieng-quan-10-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-le-thi-rieng-quan-10-ho-chi-minh</b><span>Chung Cu Le Thi Rieng · TP.HCM</span></td><td class="num">9</td><td class="num">730</td><td class="num">6</td><td class="num">9.0</td><td class="num">5</td><td class="num">0</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-ha-do-green-view-ha-do-nguyen-van-cong-quan-go-vap-ho-chi-minh">https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-ha-do-green-view-ha-do-nguyen-van-cong-q…</b><span>Ha Do Green View Ha Do Nguyen Van Cong Quan Go Vap · TP.HCM</span></td><td class="num">13</td><td class="num">491</td><td class="num">7</td><td class="num">12.6</td><td class="num">6</td><td class="num">0</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-cao-cap-hoang-thap-plaza-huyen-binh-chanh-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-cao-cap-hoang-thap-plaza-huyen-binh-ch…</b><span>Can Ho Cao Cap Hoang Thap Plaza · TP.HCM</span></td><td class="num">7</td><td class="num">663</td><td class="num">5</td><td class="num">9.5</td><td class="num">3</td><td class="num">4</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-da-nang-plaza-quan-hai-chau-da-nang">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-da-nang-plaza-quan-hai-chau-da-nang</b><span>Da Nang Plaza Quan Hai Chau · Đà Nẵng</span></td><td class="num">7</td><td class="num">523</td><td class="num">6</td><td class="num">9.4</td><td class="num">4</td><td class="num">3</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-cao-oc-107-truong-dinh-quan-3-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-cao-oc-107-truong-dinh-quan-3-ho-chi-minh</b><span>Cao Oc 107 Truong Dinh · TP.HCM</span></td><td class="num">8</td><td class="num">505</td><td class="num">8</td><td class="num">14.6</td><td class="num">2</td><td class="num">0</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-hoang-anh-gia-lai-2-quan-7-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-hoang-anh-gia-lai-2-quan-7-ho-chi-minh</b><span>Hoang Anh Gia Lai 2 · TP.HCM</span></td><td class="num">20</td><td class="num">762</td><td class="num">3</td><td class="num">17.3</td><td class="num">2</td><td class="num">7</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-c7-giang-vo-quan-ba-dinh-ha-noi">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-c7-giang-vo-quan-ba-dinh-ha-noi</b><span>C7 Giang Vo Quan Ba Dinh · Hà Nội</span></td><td class="num">7</td><td class="num">405</td><td class="num">8</td><td class="num">12.9</td><td class="num">2</td><td class="num">2</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-6a-him-lam-huyen-binh-chanh-ho-chi-minh">https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-6a-him-lam-huyen-binh-chanh-ho-chi-m…</b><span>Chung Cu 6A Him Lam · TP.HCM</span></td><td class="num">15</td><td class="num">655</td><td class="num">3</td><td class="num">14.6</td><td class="num">6</td><td class="num">3</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr><tr><td class="url-cell"><b title="https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-phu-thanh-apartment-quan-tan-phu-ho-chi-minh">https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-phu-thanh-apartment-quan-tan-phu-ho-chi-…</b><span>Phu Thanh Apartment Quan Tan Phu · TP.HCM</span></td><td class="num">8</td><td class="num">372</td><td class="num">8</td><td class="num">15.4</td><td class="num">0</td><td class="num">5</td><td><span class="tag neg-tag">Bổ sung tin trước</span></td></tr></tbody></table></div>
+<div class="table-insight"><p><b>Kết luận:</b> Bảng này dùng để chọn URL dự án cần ưu tiên bổ sung tin đăng.</p><p><b>Quyết định cần làm:</b> Quyết định: bổ sung Active Listings, Fresh Listings 30d và Seller Count cho các URL trong bảng.</p></div>
+</section>
+<section class="card">
+<h3>Cụm dự án/khu vực cần ưu tiên supply</h3>
+<p>Gom nhóm theo cụm dự án/khu vực để triển khai kế hoạch supply.</p>
+<div class="table-wrap"><table><thead><tr><th>Cụm dự án</th><th>Queries</th><th>Impressions</th><th>Clicks</th><th>Top 10</th><th>Quick 11–20</th><th>Action</th></tr></thead><tbody><tr><td class="name-cell"><b>Anh Tuan Apartment</b><span>TP.HCM · 1 URL</span></td><td class="num">9</td><td class="num">1,096</td><td class="num">68</td><td class="num">5</td><td class="num">3</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Chung Cu Phu Tho</b><span>TP.HCM · 2 URL</span></td><td class="num">22</td><td class="num">2,963</td><td class="num">34</td><td class="num">17</td><td class="num">5</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Vinhomes Grand Park</b><span>TP.HCM · 1 URL</span></td><td class="num">99</td><td class="num">2,771</td><td class="num">11</td><td class="num">18</td><td class="num">49</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Lu Gia Plaza</b><span>TP.HCM · 2 URL</span></td><td class="num">21</td><td class="num">1,738</td><td class="num">34</td><td class="num">14</td><td class="num">5</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Chung Cu B2 Truong Sa Quan Binh Thanh</b><span>TP.HCM · 2 URL</span></td><td class="num">17</td><td class="num">1,005</td><td class="num">24</td><td class="num">2</td><td class="num">10</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Chung Cu 481 Ben Ba Dinh</b><span>TP.HCM · 2 URL</span></td><td class="num">9</td><td class="num">275</td><td class="num">27</td><td class="num">8</td><td class="num">3</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Can Ho Binh Khanh</b><span>TP.HCM · 1 URL</span></td><td class="num">37</td><td class="num">1,336</td><td class="num">8</td><td class="num">19</td><td class="num">11</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Chung Cu Nguyen Kim</b><span>TP.HCM · 2 URL</span></td><td class="num">15</td><td class="num">652</td><td class="num">17</td><td class="num">8</td><td class="num">5</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Can Ho Cao Cap Orient Apartment</b><span>TP.HCM · 1 URL</span></td><td class="num">8</td><td class="num">508</td><td class="num">20</td><td class="num">3</td><td class="num">0</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Chung Cu Binh Minh</b><span>TP.HCM · 1 URL</span></td><td class="num">12</td><td class="num">983</td><td class="num">9</td><td class="num">4</td><td class="num">6</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Chung Cu Ngo Gia Tu</b><span>TP.HCM · 2 URL</span></td><td class="num">9</td><td class="num">329</td><td class="num">16</td><td class="num">6</td><td class="num">1</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Can Ho An Thinh</b><span>TP.HCM · 1 URL</span></td><td class="num">21</td><td class="num">689</td><td class="num">10</td><td class="num">7</td><td class="num">3</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Hoang Anh Gia Lai 1</b><span>TP.HCM · 2 URL</span></td><td class="num">37</td><td class="num">1,136</td><td class="num">4</td><td class="num">2</td><td class="num">8</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Tanibuilding Son Ky 2 Quan Tan Phu</b><span>TP.HCM · 1 URL</span></td><td class="num">17</td><td class="num">815</td><td class="num">7</td><td class="num">2</td><td class="num">7</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Thu Thiem Xanh</b><span>TP.HCM · 2 URL</span></td><td class="num">12</td><td class="num">712</td><td class="num">7</td><td class="num">4</td><td class="num">7</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Chung Cu Tin Phong</b><span>TP.HCM · 2 URL</span></td><td class="num">12</td><td class="num">420</td><td class="num">10</td><td class="num">5</td><td class="num">4</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>The Parkland</b><span>TP.HCM · 2 URL</span></td><td class="num">12</td><td class="num">652</td><td class="num">7</td><td class="num">7</td><td class="num">2</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Ha Do Riverside</b><span>TP.HCM · 1 URL</span></td><td class="num">15</td><td class="num">778</td><td class="num">6</td><td class="num">3</td><td class="num">6</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Chung Cu Le Thi Rieng</b><span>TP.HCM · 1 URL</span></td><td class="num">9</td><td class="num">730</td><td class="num">6</td><td class="num">5</td><td class="num">0</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr><tr><td class="name-cell"><b>Hoang Anh Gia Lai 2</b><span>TP.HCM · 2 URL</span></td><td class="num">24</td><td class="num">810</td><td class="num">3</td><td class="num">2</td><td class="num">11</td><td><span class="tag warn-tag">Ưu tiên bổ sung tin</span></td></tr></tbody></table></div>
+<div class="table-insight"><p><b>Kết luận:</b> Bảng này dùng để gom URL thành cụm dự án/khu vực để triển khai kế hoạch supply.</p><p><b>Quyết định cần làm:</b> SEO phụ trách lập danh sách cụm ưu tiên và chuyển cho các bên liên quan khi triển khai bổ sung tin đăng.</p></div>
+</section>
+<section class="section-title">
+<h2>3. Keyword SEO ưu tiên sau khi có inventory</h2>
+<p>Xác định keyword 11–20 có khả năng lên Top 10.</p>
+</section>
+<section class="card">
+<h3>Quick-win keywords 11–20</h3>
+<p>Danh sách keyword gần Top 10, chỉ triển khai sau khi kiểm tra inventory.</p>
+<div class="table-wrap"><table><thead><tr><th>Query / URL</th><th>Position</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Điều kiện triển khai</th></tr></thead><tbody><tr><td class="query-cell"><b>bán căn hộ vinhomes quận 9</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-vinhomes-grand-park-quan-9-ho-chi-m…</span></td><td class="num">11.5</td><td class="num">342</td><td class="num">3</td><td class="num">0.88%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư bình minh</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-binh-minh-quan-2-ho-chi-mi…</span></td><td class="num">10.8</td><td class="num">299</td><td class="num">4</td><td class="num">1.34%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư sư vạn hạnh</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-su-van-hanh-quan-5-ho-chi-…</span></td><td class="num">10.0</td><td class="num">269</td><td class="num">1</td><td class="num">0.37%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư bình khánh</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-binh-khanh-quan-2-ho-chi-minh</span></td><td class="num">12.4</td><td class="num">244</td><td class="num">3</td><td class="num">1.23%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>bán căn hộ vinhomes grand park</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-vinhomes-grand-park-quan-9-ho-chi-m…</span></td><td class="num">10.8</td><td class="num">185</td><td class="num">1</td><td class="num">0.54%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư lê hồng phong</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-le-hong-phong-quan-10-ho-c…</span></td><td class="num">10.2</td><td class="num">163</td><td class="num">0</td><td class="num">0.00%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư thanh nhựt</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-thanh-nhut-quan-8-ho-chi-m…</span></td><td class="num">12.8</td><td class="num">162</td><td class="num">3</td><td class="num">1.85%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư lakai</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-cao-cap-va-trung-tam-thuon…</span></td><td class="num">11.4</td><td class="num">159</td><td class="num">2</td><td class="num">1.26%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư bình khánh quận 2</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-can-ho-binh-khanh-quan-2-ho-chi-minh</span></td><td class="num">11.8</td><td class="num">154</td><td class="num">0</td><td class="num">0.00%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư b2 trường sa</b><span>https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-chung-cu-b2-truong-sa-quan-bin…</span></td><td class="num">11.1</td><td class="num">144</td><td class="num">6</td><td class="num">4.17%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư nguyễn kim</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-nguyen-kim-quan-10-ho-chi-…</span></td><td class="num">14.2</td><td class="num">141</td><td class="num">2</td><td class="num">1.42%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư tín phong</b><span>https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-chung-cu-tin-phong-quan-12-ho-…</span></td><td class="num">14.7</td><td class="num">135</td><td class="num">1</td><td class="num">0.74%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư him lam nam sài gòn</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-6a-him-lam-huyen-binh-chan…</span></td><td class="num">16.5</td><td class="num">133</td><td class="num">1</td><td class="num">0.75%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>cho thuê chung cư hoàng anh gia lai 1</b><span>https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-hoang-anh-gia-lai-1-quan-7-ho-…</span></td><td class="num">10.3</td><td class="num">132</td><td class="num">2</td><td class="num">1.52%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư bình minh 2</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-binh-minh-quan-2-ho-chi-mi…</span></td><td class="num">10.9</td><td class="num">132</td><td class="num">0</td><td class="num">0.00%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>bán căn hộ imperia an phú</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-imperia-an-phu-quan-2-ho-chi-minh</span></td><td class="num">11.2</td><td class="num">130</td><td class="num">1</td><td class="num">0.77%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>bán căn hộ terra rosa</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-terra-rosa-huyen-binh-chanh-ho-chi-…</span></td><td class="num">10.8</td><td class="num">129</td><td class="num">0</td><td class="num">0.00%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>cho thuê chung cư văn khê</b><span>https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-ct-5-van-khe-quan-ha-dong-ha-n…</span></td><td class="num">11.5</td><td class="num">129</td><td class="num">4</td><td class="num">3.10%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư anh tuấn nhà bè</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-anh-tuan-apartment-huyen-nha-be-ho-…</span></td><td class="num">11.6</td><td class="num">128</td><td class="num">3</td><td class="num">2.34%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư tuệ tĩnh</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-tue-tinh-quan-11-ho-chi-mi…</span></td><td class="num">14.4</td><td class="num">123</td><td class="num">1</td><td class="num">0.81%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>bán chung cư xi grand court</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-xi-grand-court-quan-10-ho-chi-minh</span></td><td class="num">10.3</td><td class="num">122</td><td class="num">0</td><td class="num">0.00%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư hà đô quận 12</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-ha-do-riverside-quan-12-ho-chi-minh</span></td><td class="num">12.3</td><td class="num">120</td><td class="num">2</td><td class="num">1.67%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>thuê chung cư thủ thiêm garden</b><span>https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-thu-thiem-garden-quan-9-ho-chi…</span></td><td class="num">10.4</td><td class="num">118</td><td class="num">0</td><td class="num">0.00%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cu phu tho</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-phu-tho-quan-11-ho-chi-minh</span></td><td class="num">10.2</td><td class="num">117</td><td class="num">0</td><td class="num">0.00%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>căn hộ lakai</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-cao-cap-va-trung-tam-thuon…</span></td><td class="num">12.2</td><td class="num">116</td><td class="num">1</td><td class="num">0.86%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư ct2a nghĩa đô</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-chung-cu-ct2a-nghia-do-quan-bac-tu-…</span></td><td class="num">16.5</td><td class="num">115</td><td class="num">0</td><td class="num">0.00%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>thuê chung cư rivera park quận 10</b><span>https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-rivera-park-sai-gon-quan-10-ho…</span></td><td class="num">10.8</td><td class="num">111</td><td class="num">1</td><td class="num">0.90%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>chung cư c7 giảng võ</b><span>https://muaban.net/bat-dong-san/ban-can-ho-chung-cu-du-an-c7-giang-vo-quan-ba-dinh-ha-noi</span></td><td class="num">12.1</td><td class="num">108</td><td class="num">0</td><td class="num">0.00%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>cho thuê chung cư vạn đô</b><span>https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-chung-cu-van-do-quan-4-ho-chi-…</span></td><td class="num">10.5</td><td class="num">107</td><td class="num">2</td><td class="num">1.87%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr><tr><td class="query-cell"><b>cho thuê chung cư phú thạnh</b><span>https://muaban.net/bat-dong-san/cho-thue-can-ho-chung-cu-du-an-phu-thanh-apartment-quan-tan-p…</span></td><td class="num">15.3</td><td class="num">107</td><td class="num">4</td><td class="num">3.74%</td><td><span class="tag warn-tag">SEO sau khi có inventory</span></td></tr></tbody></table></div>
+<div class="table-insight"><p><b>Kết luận:</b> Bảng này dùng để chọn keyword có khả năng lên Top 10 trong ngắn hạn.</p><p><b>Quyết định cần làm:</b> Quyết định: chỉ triển khai SEO khi URL đã có inventory hoặc có kế hoạch bổ sung tin.</p></div>
+</section>
+<section class="section-title">
+<h2>4. Kế hoạch triển khai</h2>
+<p>Kế hoạch triển khai theo hướng bổ sung inventory bằng dữ liệu thu thập từ nguồn ngoài.</p>
+</section>
+<section class="card">
+<h3>Action plan 30–60–90 ngày</h3>
+<div class="plan-grid">
+<div class="plan-card">
+<div class="priority">30D</div>
+<h4>Xác định URL/cụm dự án cần bổ sung inventory</h4>
+<p><b>Mục tiêu:</b> SEO xác định danh sách URL/cụm dự án có demand cao nhưng thiếu inventory để ưu tiên thu thập tin.</p>
+<div class="detail-list">
+<b>Việc cần làm</b>
+<ul>
+<li>Chốt danh sách 30–50 URL category dự án có impressions, Top 10 hoặc Top 11–20 cao.</li>
+<li>Gom URL theo cụm dự án/khu vực để dễ thu thập dữ liệu.</li>
+<li>Gắn trạng thái inventory: chưa có tin, rất ít tin, có tin nhưng chưa đủ.</li>
+<li>Tạo danh sách keyword mục tiêu chỉ cho các URL có kế hoạch bổ sung inventory.</li>
+</ul>
+</div>
+<p><b>KPI:</b> Có danh sách Project Supply Priority do SEO phụ trách, kèm URL, cụm dự án, keyword, impressions và trạng thái inventory.</p>
+</div>
+<div class="plan-card">
+<div class="priority">60D</div>
+<h4>Thu thập và chuẩn hóa tin đăng từ nguồn ngoài</h4>
+<p><b>Mục tiêu:</b> Bổ sung inventory cho các URL dự án priority bằng dữ liệu thu thập từ các nguồn BĐS bên ngoài.</p>
+<div class="detail-list">
+<b>Việc cần làm</b>
+<ul>
+<li>Cào tin theo danh sách dự án/khu vực priority.</li>
+<li>Chuẩn hóa các trường: tên dự án, loại giao dịch, giá, diện tích, số phòng ngủ, địa chỉ/khu vực, số điện thoại, hình ảnh nếu hợp lệ.</li>
+<li>Deduplicate theo dự án, số điện thoại, giá, diện tích, tiêu đề và thời gian đăng.</li>
+<li>Map tin về đúng URL category dự án trên Muaban.net.</li>
+<li>Gắn trạng thái kiểm duyệt: đủ dữ liệu, thiếu dữ liệu, trùng lặp, nghi ngờ sai dự án.</li>
+</ul>
+</div>
+<p><b>KPI:</b> Có bộ dữ liệu tin đăng đã chuẩn hóa cho nhóm URL priority, sẵn sàng import/publish có kiểm soát.</p>
+</div>
+<div class="plan-card">
+<div class="priority">90D</div>
+<h4>Import có kiểm soát và scale SEO</h4>
+<p><b>Mục tiêu:</b> Sau khi URL có inventory, triển khai SEO để tăng số keyword Top 10 có giá trị thực tế.</p>
+<div class="detail-list">
+<b>Việc cần làm</b>
+<ul>
+<li>Import/publish tin đã chuẩn hóa theo rule chất lượng dữ liệu.</li>
+<li>Không index các tin quá mỏng, trùng lặp hoặc không đủ thông tin.</li>
+<li>Tối ưu lại URL category dự án có inventory: title/meta, H1, block tin mới, internal link, FAQ.</li>
+<li>Đẩy nhóm keyword 11–20 lên Top 10 sau khi URL có đủ tin.</li>
+<li>Theo dõi dashboard Keyword Top 10 × Inventory theo tuần.</li>
+</ul>
+</div>
+<p><b>KPI:</b> 100 keyword Top 10 inventory-qualified và nhóm URL priority có dữ liệu tin đăng đủ để phục vụ người dùng.</p>
+</div>
+</div>
+</section>
+<section class="card">
+<h3>Rule quyết định cho từng URL dự án</h3>
+<p>Rule phân loại URL để quyết định thu thập tin, import/publish hoặc xử lý SEO.</p>
+<div class="table-wrap"><table><thead><tr><th>Tình trạng URL</th><th>Quyết định</th><th>Owner chính</th><th>Có tính vào 100 keyword?</th></tr></thead><tbody>
+<tr>
+<td class="name-cell"><b>Có demand + đã có inventory</b><span>URL có impressions/Top 10/Top 11–20 và có tin</span></td>
+<td>Scale SEO: tối ưu title/meta, content block, FAQ, internal link.</td>
+<td>SEO</td>
+<td><span class="tag pos-tag">Có</span></td>
+</tr>
+<tr>
+<td class="name-cell"><b>Có demand + thiếu inventory</b><span>Tình trạng cần ưu tiên của cate dự án</span></td>
+<td>Ưu tiên thu thập tin từ nguồn ngoài, chuẩn hóa, deduplicate và map về URL dự án.</td>
+<td>SEO đề xuất danh sách; Tech/Data hỗ trợ thu thập/import</td>
+<td><span class="tag warn-tag">Tạm tính nếu có kế hoạch bổ sung inventory</span></td>
+</tr>
+<tr>
+<td class="name-cell"><b>Chưa có demand + thiếu inventory</b><span>URL chưa có tín hiệu ưu tiên từ GSC</span></td>
+<td>Không ưu tiên thu thập tin trong giai đoạn đầu; chỉ xử lý nếu thuộc cụm chiến lược.</td>
+<td>SEO</td>
+<td><span class="tag neg-tag">Không ưu tiên</span></td>
+</tr>
+<tr>
+<td class="name-cell"><b>Query noise / URL lệch intent</b><span>Không phản ánh nhu cầu dự án</span></td>
+<td>Loại khỏi target keyword; rà soát index/canonical nếu cần.</td>
+<td>SEO / Tech</td>
+<td><span class="tag neg-tag">Không</span></td>
+</tr>
+</tbody></table></div>
+</section>
+<section class="card">
+<h3>Dashboard tracking cần tạo</h3>
+<p>Dashboard theo dõi tiến độ từ GSC priority đến inventory đã bổ sung.</p>
+<div class="table-wrap"><table><thead><tr><th>Nhóm KPI</th><th>Định nghĩa</th><th>Target</th><th>Owner</th></tr></thead><tbody>
+<tr>
+<td class="name-cell"><b>Priority project URLs</b></td>
+<td>URL dự án được SEO chọn để bổ sung inventory dựa trên GSC demand.</td>
+<td class="num">30–50 URL</td>
+<td>SEO</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Collected listings</b></td>
+<td>Số tin thu thập được từ nguồn ngoài theo từng URL/cụm dự án.</td>
+<td class="num">Theo URL</td>
+<td>Data / Tech</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Valid listings after dedupe</b></td>
+<td>Số tin còn lại sau khi chuẩn hóa, loại trùng và loại tin thiếu dữ liệu.</td>
+<td class="num">Theo URL</td>
+<td>Data / SEO</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Published / import-ready listings</b></td>
+<td>Số tin đủ điều kiện import/publish lên URL dự án.</td>
+<td class="num">Theo URL</td>
+<td>Tech / Product</td>
+</tr>
+<tr>
+<td class="name-cell"><b>Inventory-qualified Top 10</b></td>
+<td>Keyword Top 10 có URL đã có inventory đủ tốt.</td>
+<td class="num">100</td>
+<td>SEO</td>
+</tr>
+</tbody></table></div>
+</section>
+<div class="footer">Generated from Data trang dự án.xlsx · Decision Report · GSC × Scraping Inventory · Muaban.net · v8</div>
+</main>
+</body>
+</html>
